@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ovulation Calculator | VitalTools</title>
+    <meta
+      name="description"
+      content="Estimate ovulation date and fertile window from cycle length and LMP."
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="../index.html"><span class="brand-pill">VT</span> VitalTools</a>
+        <nav class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../disclaimer.html">Disclaimer</a>
+          <a href="../privacy.html">Privacy</a>
+        </nav>
+        <div class="theme-switcher">
+          <button class="theme-btn active" type="button" data-theme-value="mint" style="background:#0b8f78"></button>
+          <button class="theme-btn" type="button" data-theme-value="sunrise" style="background:#c86b35"></button>
+          <button class="theme-btn" type="button" data-theme-value="violet" style="background:#635bff"></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container tool-layout">
+        <section class="panel">
+          <h1>Ovulation Calculator</h1>
+          <p>Estimate your ovulation day and fertile window using cycle details.</p>
+          <form id="ovulationForm">
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="ovuLmp">First day of last period</label>
+                <input id="ovuLmp" type="date" required />
+              </div>
+              <div class="form-row">
+                <label for="ovuCycle">Average cycle length (days)</label>
+                <input id="ovuCycle" type="number" min="21" max="45" value="28" required />
+              </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Calculate Ovulation</button>
+          </form>
+          <div class="result-box" id="ovulationResult">
+            Enter LMP date and cycle length to estimate ovulation.
+          </div>
+        </section>
+
+        <aside class="panel">
+          <div class="ad-slot">Ad Slot (300x250)</div>
+          <p class="warning">
+            Cycle predictions can vary. Track patterns over several months and consult your
+            clinician for fertility planning.
+          </p>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div><a href="../index.html">Back to Home</a></div>
+        <div><small>Copyright <span id="year"></span> VitalTools.</small></div>
+      </div>
+    </footer>
+
+    <script src="../assets/js/site.js"></script>
+    <script src="../assets/js/calculators.js"></script>
+  </body>
+</html>

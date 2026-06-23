@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Preview | VitalTools</title>
+    <meta
+      name="description"
+      content="Visual preview page for VitalTools color themes and components."
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="index.html"><span class="brand-pill">VT</span> VitalTools</a>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="ui-preview.html">UI Preview</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+        <div class="theme-switcher">
+          <button class="theme-btn active" type="button" data-theme-value="mint" style="background:#0b8f78"></button>
+          <button class="theme-btn" type="button" data-theme-value="sunrise" style="background:#c86b35"></button>
+          <button class="theme-btn" type="button" data-theme-value="violet" style="background:#635bff"></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section container">
+        <h1>UI Theme Preview</h1>
+        <p>
+          Use the theme buttons in the top-right corner to compare color schemes:
+          <strong>Mint</strong>, <strong>Sunrise</strong>, and <strong>Violet</strong>.
+        </p>
+      </section>
+
+      <section class="section container cards">
+        <article class="card">
+          <h3>Calculator Card Example</h3>
+          <p>This card style is used for tool listings on the home page.</p>
+          <a class="btn btn-primary" href="tools/bmi-calculator.html">Primary Action</a>
+        </article>
+        <article class="card">
+          <h3>Content + Ad Layout</h3>
+          <div class="ad-slot">Ad Preview Area</div>
+          <a class="btn" href="#">Secondary Action</a>
+        </article>
+      </section>
+
+      <section class="section container tool-layout">
+        <div class="panel">
+          <h2>Form Components</h2>
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="demoInput">Input field</label>
+              <input id="demoInput" type="text" placeholder="Type here" />
+            </div>
+            <div class="form-row">
+              <label for="demoSelect">Select field</label>
+              <select id="demoSelect">
+                <option>Option one</option>
+                <option>Option two</option>
+              </select>
+            </div>
+          </div>
+          <div class="result-box">
+            <strong>Result Box:</strong> Key outputs are shown inside this block.
+          </div>
+          <p class="notice">Notice style for helpful context.</p>
+          <p class="warning">Warning style for medical disclaimers.</p>
+        </div>
+        <aside class="panel">
+          <h2>Theme notes</h2>
+          <ul class="list">
+            <li>Mint: strong healthcare feel (recommended default).</li>
+            <li>Sunrise: warm lifestyle tone.</li>
+            <li>Violet: modern tech aesthetic.</li>
+          </ul>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div><strong>VitalTools</strong></div>
+        <div><a href="index.html">Home</a> · <a href="contact.html">Contact</a></div>
+        <div><small>Copyright <span id="year"></span> VitalTools.</small></div>
+      </div>
+    </footer>
+
+    <script src="assets/js/site.js"></script>
+  </body>
+</html>

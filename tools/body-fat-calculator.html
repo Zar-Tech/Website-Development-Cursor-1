@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Body Fat Calculator | VitalTools</title>
+    <meta
+      name="description"
+      content="Estimate body fat percentage using the U.S. Navy circumference method."
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="../index.html"><span class="brand-pill">VT</span> VitalTools</a>
+        <nav class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../disclaimer.html">Disclaimer</a>
+          <a href="../privacy.html">Privacy</a>
+        </nav>
+        <div class="theme-switcher">
+          <button class="theme-btn active" type="button" data-theme-value="mint" style="background:#0b8f78"></button>
+          <button class="theme-btn" type="button" data-theme-value="sunrise" style="background:#c86b35"></button>
+          <button class="theme-btn" type="button" data-theme-value="violet" style="background:#635bff"></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container tool-layout">
+        <section class="panel">
+          <h1>Body Fat Calculator</h1>
+          <p>Estimate body fat using neck, waist, and optional hip measurements.</p>
+          <form id="bodyFatForm">
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="bfSex">Sex</label>
+                <select id="bfSex">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="bfHeight">Height (cm)</label>
+                <input id="bfHeight" type="number" min="1" step="0.1" required />
+              </div>
+              <div class="form-row">
+                <label for="bfNeck">Neck (cm)</label>
+                <input id="bfNeck" type="number" min="1" step="0.1" required />
+              </div>
+              <div class="form-row">
+                <label for="bfWaist">Waist (cm)</label>
+                <input id="bfWaist" type="number" min="1" step="0.1" required />
+              </div>
+              <div class="form-row">
+                <label for="bfHip">Hip (cm, women only)</label>
+                <input id="bfHip" type="number" min="1" step="0.1" />
+              </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Calculate Body Fat</button>
+          </form>
+          <div class="result-box" id="bodyFatResult">Fill details for body fat estimate.</div>
+        </section>
+
+        <aside class="panel">
+          <div class="ad-slot">Ad Slot (300x250)</div>
+          <p class="warning">
+            Circumference methods provide an estimate and can vary from clinical tests.
+          </p>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div><a href="../index.html">Back to Home</a></div>
+        <div><small>Copyright <span id="year"></span> VitalTools.</small></div>
+      </div>
+    </footer>
+
+    <script src="../assets/js/site.js"></script>
+    <script src="../assets/js/calculators.js"></script>
+  </body>
+</html>
