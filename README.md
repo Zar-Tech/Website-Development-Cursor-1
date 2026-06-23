@@ -5,7 +5,6 @@ Hostinger-ready static website template for health calculators + AdSense monetiz
 ## Included pages
 
 - `index.html` - home page and tools grid
-- `ui-preview.html` - theme and component preview
 - `about.html`, `privacy.html`, `disclaimer.html`, `contact.html`
 - 10 calculator pages in `tools/`
 
@@ -51,8 +50,7 @@ Theme choice is saved in browser local storage.
 
 1. In Hostinger choose **Custom PHP/HTML website**
 2. Upload all files and folders to `public_html`
-3. Visit `https://yourdomain.com/ui-preview.html` to pick theme
-4. Submit sitemap to Google Search Console
+3. Submit sitemap to Google Search Console
 
 ## Notes
 
