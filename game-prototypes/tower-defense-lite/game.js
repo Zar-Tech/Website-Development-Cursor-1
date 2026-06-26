@@ -450,6 +450,14 @@ function updateBattleState() {
   }
 }
 
+function keepWaveStatusFresh() {
+  const staleClearMessage = hud.toast.textContent.startsWith("Wave cleared");
+
+  if (state.waveActive && state.enemies.length > 0 && staleClearMessage) {
+    showToast(`Wave ${state.waveIndex} active. Defend the path.`);
+  }
+}
+
 function update(delta) {
   if (state.paused) {
     return;
@@ -461,6 +469,7 @@ function update(delta) {
   updateProjectiles(delta);
   state.heroCooldown = Math.max(0, state.heroCooldown - delta);
   updateBattleState();
+  keepWaveStatusFresh();
   updateHud();
 }
 
