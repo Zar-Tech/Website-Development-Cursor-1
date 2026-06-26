@@ -1,0 +1,302 @@
+:root {
+  color-scheme: dark;
+  --bg: #0d1630;
+  --panel: rgba(20, 32, 63, 0.9);
+  --panel-strong: #17284d;
+  --gold: #ffd166;
+  --blue: #68d8ff;
+  --green: #7ef29d;
+  --red: #ff6b7a;
+  --text: #f7fbff;
+  --muted: #b9c6e0;
+  --border: rgba(255, 255, 255, 0.14);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.38);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px 12px;
+  color: var(--text);
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(104, 216, 255, 0.28), transparent 32%),
+    radial-gradient(circle at 80% 10%, rgba(126, 242, 157, 0.18), transparent 30%),
+    linear-gradient(155deg, #071020 0%, var(--bg) 52%, #1b2144 100%);
+}
+
+button {
+  border: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.phone-shell {
+  width: min(430px, 100%);
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(30, 45, 84, 0.92), rgba(9, 18, 40, 0.98));
+  box-shadow: var(--shadow);
+}
+
+.top-panel,
+.battle-card,
+.tower-dock,
+.monetization-panel,
+.event-log {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  backdrop-filter: blur(18px);
+}
+
+.top-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 10px;
+  border-radius: 22px;
+}
+
+.top-panel div {
+  min-width: 0;
+  padding: 8px 6px;
+  border-radius: 16px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.label,
+.eyebrow,
+.tower-card small,
+.monetization-panel span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.top-panel strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 1rem;
+}
+
+.battle-card {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 26px;
+}
+
+.battle-header,
+.battle-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.battle-header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.eyebrow {
+  margin: 0 0 2px;
+  color: var(--green);
+}
+
+.icon-btn,
+.secondary-btn,
+.primary-btn,
+.tower-card,
+.hero-skill,
+.ad-card,
+.iap-card {
+  border-radius: 16px;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.canvas-wrap {
+  position: relative;
+  overflow: hidden;
+  margin: 12px 0;
+  border-radius: 24px;
+  background: #10213f;
+}
+
+#gameCanvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 390 / 520;
+  touch-action: manipulation;
+}
+
+.toast {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  color: #ecf7ff;
+  background: rgba(7, 15, 31, 0.74);
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+.battle-actions button {
+  min-height: 44px;
+  padding: 0 14px;
+  font-weight: 800;
+}
+
+.primary-btn {
+  flex: 1.2;
+  background: linear-gradient(135deg, #ffb545, var(--gold));
+  color: #342100;
+  box-shadow: 0 10px 24px rgba(255, 209, 102, 0.22);
+}
+
+.secondary-btn {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tower-dock {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 24px;
+}
+
+.tower-card {
+  min-height: 84px;
+  display: grid;
+  gap: 3px;
+  place-items: center;
+  padding: 8px 4px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tower-card.active {
+  outline: 2px solid var(--gold);
+  background: rgba(255, 209, 102, 0.16);
+}
+
+.tower-icon {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 50%;
+  color: #06111f;
+  font-weight: 900;
+  background: var(--gold);
+}
+
+.monetization-panel {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 24px;
+}
+
+.monetization-panel button {
+  min-height: 68px;
+  padding: 10px;
+  text-align: left;
+}
+
+.hero-skill {
+  background: linear-gradient(135deg, #7b5cff, #ff6bd6);
+}
+
+.ad-card {
+  background: linear-gradient(135deg, #128664, #36d391);
+}
+
+.iap-card {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.event-log {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 22px;
+}
+
+.event-log h2 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+}
+
+.event-log ul {
+  max-height: 96px;
+  margin: 0;
+  padding-left: 18px;
+  overflow: auto;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.event-log li + li {
+  margin-top: 4px;
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 380px) {
+  body {
+    padding: 8px;
+  }
+
+  .phone-shell {
+    border-radius: 24px;
+    padding: 10px;
+  }
+
+  .battle-actions,
+  .monetization-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .battle-actions {
+    display: grid;
+  }
+}
