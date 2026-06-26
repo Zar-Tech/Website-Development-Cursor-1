@@ -201,6 +201,14 @@ button {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.tower-card small {
+  color: var(--gold);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
 .tower-card.active {
   outline: 2px solid var(--gold);
   background: rgba(255, 209, 102, 0.16);
