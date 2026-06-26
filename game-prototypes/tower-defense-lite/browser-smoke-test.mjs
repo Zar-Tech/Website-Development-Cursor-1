@@ -74,6 +74,25 @@ async function waitForChrome() {
   throw new Error("Timed out waiting for Chrome DevTools endpoint.");
 }
 
+async function waitForPageTarget() {
+  await waitForChrome();
+
+  const endpoint = `http://127.0.0.1:${port}/json/list`;
+
+  for (let attempt = 0; attempt < 80; attempt += 1) {
+    const targets = await fetchJson(endpoint);
+    const page = targets.find((target) => target.type === "page");
+
+    if (page) {
+      return page;
+    }
+
+    await sleep(100);
+  }
+
+  throw new Error("Timed out waiting for Chrome page target.");
+}
+
 async function evaluate(client, expression) {
   const result = await client.send("Runtime.evaluate", {
     expression,
@@ -137,8 +156,8 @@ const chrome = spawn(chromePath, [
 });
 
 try {
-  const version = await waitForChrome();
-  const socket = new WebSocket(version.webSocketDebuggerUrl);
+  const pageTarget = await waitForPageTarget();
+  const socket = new WebSocket(pageTarget.webSocketDebuggerUrl);
   await new Promise((resolve, reject) => {
     socket.addEventListener("open", resolve, { once: true });
     socket.addEventListener("error", reject, { once: true });
