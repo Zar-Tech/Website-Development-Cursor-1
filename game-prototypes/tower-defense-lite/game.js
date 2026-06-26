@@ -122,6 +122,7 @@ const state = {
   projectiles: [],
   spawnQueue: [],
   spawnTimer: 0,
+  waveClearTimer: 0,
   waveActive: false,
   heroCooldown: 0,
   paused: false,
@@ -183,6 +184,7 @@ function startWave() {
 
   state.spawnQueue = createSpawnQueue(waves[state.waveIndex]);
   state.spawnTimer = 0;
+  state.waveClearTimer = 0;
   state.waveActive = true;
   state.waveIndex += 1;
   addLog(`Wave ${state.waveIndex} started.`);
@@ -426,7 +428,7 @@ function updateProjectiles(delta) {
   state.projectiles = state.projectiles.filter((projectile) => projectile.life > 0);
 }
 
-function updateBattleState() {
+function updateBattleState(delta) {
   if (state.lives <= 0 && !state.lost) {
     state.lost = true;
     state.waveActive = false;
@@ -435,7 +437,14 @@ function updateBattleState() {
   }
 
   if (state.waveActive && state.spawnQueue.length === 0 && state.enemies.length === 0) {
+    state.waveClearTimer += delta;
+
+    if (state.waveClearTimer < 0.4) {
+      return;
+    }
+
     state.waveActive = false;
+    state.waveClearTimer = 0;
 
     if (state.waveIndex >= waves.length) {
       state.won = true;
@@ -447,6 +456,8 @@ function updateBattleState() {
       showToast("Wave cleared. +45 bonus gold.");
       addLog(`Wave ${state.waveIndex} cleared.`);
     }
+  } else {
+    state.waveClearTimer = 0;
   }
 }
 
@@ -468,7 +479,7 @@ function update(delta) {
   updateEnemies(delta);
   updateProjectiles(delta);
   state.heroCooldown = Math.max(0, state.heroCooldown - delta);
-  updateBattleState();
+  updateBattleState(delta);
   keepWaveStatusFresh();
   updateHud();
 }
@@ -658,4 +669,20 @@ document.querySelector("#pauseButton").addEventListener("click", () => {
 });
 
 updateHud();
+window.tdLiteDebug = {
+  snapshot() {
+    return {
+      lives: state.lives,
+      gold: state.gold,
+      gems: state.gems,
+      waveIndex: state.waveIndex,
+      waveActive: state.waveActive,
+      spawnQueueLength: state.spawnQueue.length,
+      enemyCount: state.enemies.length,
+      towerCount: state.towers.length,
+      toast: hud.toast.textContent,
+      log: [...hud.log.querySelectorAll("li")].map((item) => item.textContent),
+    };
+  },
+};
 requestAnimationFrame(tick);
