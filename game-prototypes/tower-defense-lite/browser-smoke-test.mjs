@@ -110,6 +110,21 @@ function assert(condition, message) {
   }
 }
 
+async function stopChrome(chromeProcess) {
+  if (chromeProcess.exitCode !== null) {
+    return;
+  }
+
+  chromeProcess.kill();
+
+  await Promise.race([
+    new Promise((resolve) => {
+      chromeProcess.once("exit", resolve);
+    }),
+    sleep(2000),
+  ]);
+}
+
 const chrome = spawn(chromePath, [
   "--headless=new",
   "--disable-gpu",
@@ -210,6 +225,6 @@ try {
   console.log(JSON.stringify(snapshot, null, 2));
   socket.close();
 } finally {
-  chrome.kill();
+  await stopChrome(chrome);
   await rm(profileDir, { recursive: true, force: true });
 }
