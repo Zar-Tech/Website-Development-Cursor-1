@@ -10,7 +10,12 @@ For square app icons (like Brain Dash), create multiple sizes:
   brain-dash-panel.jpg  → 1200×750  games page wide banner
 
 Regenerate from icon:
-  python3 scripts/generate-brain-dash-images.py
+  python3 scripts/generate-game-images.py brain-dash
+  python3 scripts/generate-game-images.py xo-rivals
+
+Place source files first:
+  public/games/brain-dash.jpg
+  public/games/xo-rivals.png
 
 In src/data/content.js:
 
