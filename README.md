@@ -1,60 +1,73 @@
-# VitalTools - Health Utility Website Template
+# FAMZ Games Website
 
-Hostinger-ready static website template for health calculators + AdSense monetization.
+An interactive indie game studio website with 3D animations, built with React, Three.js, and Framer Motion.
 
-## Included pages
+Inspired by [famzgames.com](https://famzgames.com/) with enhanced interactivity and immersive 3D visuals.
 
-- `index.html` - home page and tools grid
-- `ui-preview.html` - theme and component preview
-- `about.html`, `privacy.html`, `disclaimer.html`, `contact.html`
-- 10 calculator pages in `tools/`
+## Features
 
-## Calculator pages
+- **3D Hero Scene** — Interactive Three.js background with floating shapes, particle field, and mouse parallax
+- **3D Game Showcase** — Rotating game cubes representing each title
+- **Interactive Game Cards** — 3D tilt effect on hover with scroll-triggered animations
+- **Magnetic Buttons** — Buttons that follow cursor movement
+- **Cursor Glow** — Ambient light effect following the mouse
+- **Page Transitions** — Smooth animated route changes
+- **Genre Filters** — Interactive game filtering on the Games page
+- **Responsive Design** — Mobile-friendly layout with hamburger navigation
 
-- BMI
-- BMR
-- TDEE
-- Calorie Goal
-- Water Intake
-- Body Fat (U.S. Navy method)
-- Ideal Weight (Devine formula)
-- Heart Rate Zones (Karvonen)
-- Pregnancy Due Date
-- Ovulation Window
+## Pages
 
-## UI color schemes
+- **Home** — Hero with 3D scene, stats, featured games, 3D showcase
+- **Games** — Full game catalog with genre filters
+- **About** — Studio story, values, and team
+- **Blog** — News and announcements
+- **Contact** — Contact form with validation
 
-Use theme buttons in the header (top-right):
+## Tech Stack
 
-1. Mint (default healthcare style)
-2. Sunrise (warm style)
-3. Violet (modern style)
+- React 18 + Vite
+- React Router
+- Three.js + React Three Fiber + Drei
+- Framer Motion
+- Lucide React icons
 
-Theme choice is saved in browser local storage.
+## Development
 
-## AdSense setup
-
-1. Replace ad placeholders (`<div class="ad-slot">`) with your AdSense ad code.
-2. Update `ads.txt` with your real publisher ID.
-3. Replace `https://yourdomain.com` entries in `sitemap.xml` and `robots.txt`.
-4. Add your AdSense script in `<head>` of each page:
-
-```html
-<script
-  async
-  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
-  crossorigin="anonymous"
-></script>
+```bash
+npm install
+npm run dev
 ```
 
-## Hostinger upload
+## Build for Production
 
-1. In Hostinger choose **Custom PHP/HTML website**
-2. Upload all files and folders to `public_html`
-3. Visit `https://yourdomain.com/ui-preview.html` to pick theme
-4. Submit sitemap to Google Search Console
+```bash
+npm run build
+```
 
-## Notes
+Output goes to `dist/` — upload to Hostinger or any static hosting.
 
-- This template is educational and does not provide medical advice.
-- Update legal pages with your exact business details before going live.
+## Deploy to Hostinger
+
+1. Run `npm run build`
+2. Upload contents of `dist/` to `public_html`
+3. Add a `.htaccess` rewrite for SPA routing (if using Apache):
+
+```apache
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+```
+
+## Games Portfolio
+
+- Pixel Quest — Retro adventure
+- Neon Runners — Neon parkour racing
+- Mystic Realms — Fantasy RPG
+- Cyber Clash — Cyberpunk action
+- Space Odyssey — Open-world exploration
+- Adventure Legends — Co-op quests
