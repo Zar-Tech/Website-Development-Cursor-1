@@ -2,68 +2,80 @@ export const games = [
   {
     id: 1,
     title: 'Pixel Quest',
+    tagline: 'Retro Adventure Awaits',
     description:
       'Embark on a retro-inspired adventure through pixelated worlds filled with challenging puzzles and hidden secrets.',
-    image: 'https://images.unsplash.com/photo-1589587570540-8d163dc13461?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1589587570540-8d163dc13461?w=900&q=80',
     rating: 94.3,
     players: '2,847',
     genre: 'Adventure',
-    color: '#22d3ee',
+    color: '#00f0ff',
+    accent: '#7c3aed',
   },
   {
     id: 2,
     title: 'Neon Runners',
+    tagline: 'Speed. Style. Survival.',
     description:
       'Race through neon-lit cityscapes in this fast-paced parkour game where every second counts.',
-    image: 'https://images.unsplash.com/photo-1612404730960-5c71577fca11?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1612404730960-5c71577fca11?w=900&q=80',
     rating: 91.7,
     players: '4,192',
     genre: 'Racing',
-    color: '#a855f7',
+    color: '#ff00aa',
+    accent: '#00f0ff',
   },
   {
     id: 3,
     title: 'Mystic Realms',
+    tagline: 'Magic Lives Here',
     description:
       'Explore magical kingdoms and battle mythical creatures in this epic fantasy RPG adventure.',
-    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=900&q=80',
     rating: 96.1,
     players: '5,621',
     genre: 'RPG',
-    color: '#6366f1',
+    color: '#8b5cf6',
+    accent: '#f59e0b',
   },
   {
     id: 4,
     title: 'Cyber Clash',
+    tagline: 'Hack. Fight. Dominate.',
     description:
       'Engage in intense cyberpunk combat with customizable weapons and tactical team play.',
-    image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=900&q=80',
     rating: 89.5,
     players: '3,104',
     genre: 'Action',
-    color: '#ec4899',
+    color: '#ff3366',
+    accent: '#00f0ff',
   },
   {
     id: 5,
     title: 'Space Odyssey',
+    tagline: 'Beyond the Stars',
     description:
       'Uncover ancient mysteries and forge your own path in this open-world exploration game.',
-    image: 'https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=900&q=80',
     rating: 92.8,
     players: '2,956',
     genre: 'Exploration',
     color: '#3b82f6',
+    accent: '#a855f7',
   },
   {
     id: 6,
     title: 'Adventure Legends',
+    tagline: 'Quest Together',
     description:
       'Team up with friends in cooperative quests across vast landscapes and dungeons.',
-    image: 'https://images.unsplash.com/photo-1538481199705-c710c4e34fc0?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1538481199705-c710c4e34fc0?w=900&q=80',
     rating: 90.2,
     players: '4,508',
     genre: 'Co-op',
     color: '#f59e0b',
+    accent: '#ef4444',
   },
 ];
 
@@ -75,25 +87,22 @@ export const blogPosts = [
     excerpt:
       'After months of development and community feedback, we are thrilled to announce the official release of Pixel Quest.',
     image: 'https://images.unsplash.com/photo-1589587570540-8d163dc13461?w=800&q=80',
-    slug: 'announcing-pixel-quest-release',
   },
   {
     id: 2,
     title: 'Behind the Scenes: Game Development',
     date: 'March 27, 2026',
     excerpt:
-      'Ever wondered what goes into creating a game? Join us as we take you behind the scenes of our development process.',
+      'Ever wondered what goes into creating a game? Join us behind the scenes of our development process.',
     image: 'https://images.unsplash.com/photo-1612404730960-5c71577fca11?w=800&q=80',
-    slug: 'behind-the-scenes-game-development',
   },
   {
     id: 3,
     title: 'FAMZ Games Wins Indie Award',
     date: 'February 14, 2026',
     excerpt:
-      'We are honored to announce that Neon Runners has won Best Indie Game at the Global Gaming Awards.',
+      'Neon Runners has won Best Indie Game at the Global Gaming Awards. This recognition means the world to our team.',
     image: 'https://images.unsplash.com/photo-1685567638296-bd4c0ba841a1?w=800&q=80',
-    slug: 'famz-games-wins-indie-award',
   },
   {
     id: 4,
@@ -102,7 +111,6 @@ export const blogPosts = [
     excerpt:
       'Neon Runners v2.0 brings new tracks, characters, and a completely revamped multiplayer experience.',
     image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80',
-    slug: 'neon-runners-v2-update',
   },
 ];
 
@@ -131,22 +139,22 @@ export const team = [
 
 export const values = [
   {
-    title: 'Player-focused design',
+    title: 'Player-Focused Design',
     description: 'Every decision starts with the player experience in mind.',
     icon: 'users',
   },
   {
-    title: 'Innovation first',
+    title: 'Innovation First',
     description: 'We push boundaries with creative mechanics and fresh ideas.',
-    icon: 'lightbulb',
+    icon: 'zap',
   },
   {
-    title: 'Community driven',
+    title: 'Community Driven',
     description: 'Our players shape the future of our games through feedback.',
     icon: 'heart',
   },
   {
-    title: 'Passion for gaming',
+    title: 'Passion for Gaming',
     description: 'We are gamers creating games for gamers.',
     icon: 'gamepad',
   },
@@ -157,4 +165,11 @@ export const socialLinks = [
   { name: 'Discord', url: 'https://discord.gg/famzgames' },
   { name: 'Instagram', url: 'https://instagram.com/famzgames' },
   { name: 'YouTube', url: 'https://youtube.com/@famzgames' },
+];
+
+export const stats = [
+  { value: 6, suffix: '+', label: 'Games Released' },
+  { value: 25, suffix: 'K+', label: 'Active Players' },
+  { value: 94, suffix: '%', label: 'Avg Rating' },
+  { value: 2019, suffix: '', label: 'Founded' },
 ];

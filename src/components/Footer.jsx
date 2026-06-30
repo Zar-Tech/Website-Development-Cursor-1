@@ -2,46 +2,29 @@ import { Link } from 'react-router-dom';
 import { Twitter, MessageCircle, Instagram, Youtube } from 'lucide-react';
 import { socialLinks } from '../data/content';
 
-const iconMap = {
-  Twitter: Twitter,
-  Discord: MessageCircle,
-  Instagram: Instagram,
-  YouTube: Youtube,
-};
-
-const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'Games', path: '/games' },
-  { name: 'About', path: '/about' },
-  { name: 'Blog', path: '/blog' },
-  { name: 'Contact', path: '/contact' },
-];
+const icons = { Twitter, Discord: MessageCircle, Instagram, YouTube: Youtube };
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="footer">
-      <div className="container">
-        <div className="footer-grid">
-          <div>
-            <div className="footer-brand gradient-text">FAMZ Games</div>
-            <p className="footer-desc">
-              Creating immersive gaming experiences since 2019. From retro adventures to
-              futuristic races.
+      <div className="footer__glow" />
+      <div className="container footer__inner">
+        <div className="footer__top">
+          <div className="footer__brand-col">
+            <div className="footer__brand">
+              <span className="nav__brand-famz">FAMZ</span>
+              <span className="nav__brand-games">GAMES</span>
+            </div>
+            <p className="footer__tagline">
+              Creating immersive gaming experiences that bring players together from around the world.
             </p>
-            <div className="footer-social">
-              {socialLinks.map((social) => {
-                const Icon = iconMap[social.name];
+            <div className="footer__socials">
+              {socialLinks.map((s) => {
+                const Icon = icons[s.name];
                 return (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-btn"
-                    aria-label={social.name}
-                  >
+                  <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" className="footer__social interactive" aria-label={s.name}>
                     <Icon size={18} />
                   </a>
                 );
@@ -49,32 +32,27 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
-            <div className="footer-heading">Navigation</div>
-            <div className="footer-links">
-              {navLinks.map((link) => (
-                <Link key={link.path} to={link.path}>
-                  {link.name}
-                </Link>
-              ))}
-            </div>
+          <div className="footer__col">
+            <h4>Quick Links</h4>
+            <Link to="/" className="interactive">Home</Link>
+            <Link to="/games" className="interactive">Games</Link>
+            <Link to="/about" className="interactive">About</Link>
+            <Link to="/blog" className="interactive">Blog</Link>
           </div>
 
-          <div>
-            <div className="footer-heading">Contact</div>
-            <div className="footer-links">
-              <a href="mailto:hello@famzgames.com">hello@famzgames.com</a>
-              <span>Indie Game Studio</span>
-              <span>Est. 2019</span>
-            </div>
+          <div className="footer__col">
+            <h4>Connect With Us</h4>
+            <a href="mailto:hello@famzgames.com" className="interactive">hello@famzgames.com</a>
+            <span>Indie Game Studio</span>
+            <span>Est. 2019</span>
           </div>
         </div>
 
-        <div className="footer-bottom">
+        <div className="footer__bottom">
           <span>&copy; {year} FAMZ Games. All rights reserved.</span>
-          <div style={{ display: 'flex', gap: '1.5rem' }}>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+          <div className="footer__legal">
+            <a href="#" className="interactive">Privacy Policy</a>
+            <a href="#" className="interactive">Terms of Service</a>
           </div>
         </div>
       </div>

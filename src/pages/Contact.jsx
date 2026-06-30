@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, MapPin, MessageSquare, CheckCircle } from 'lucide-react';
-import { MagneticButton } from '../components/MagneticButton';
+import { Mail, MapPin, Send, CheckCircle } from 'lucide-react';
+import Reveal from '../components/Reveal';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
@@ -14,164 +14,109 @@ export default function Contact() {
     setTimeout(() => setSent(false), 4000);
   };
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
   return (
-    <motion.div
-      className="page-wrapper"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-    >
-      <div className="page-header">
-        <div className="container page-header-content">
-          <motion.h1
-            className="section-title"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            Get in <span className="gradient-text">Touch</span>
-          </motion.h1>
-          <motion.p
-            className="section-desc"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-          >
-            Have a question, partnership idea, or just want to say hello? We would love to
-            hear from you.
-          </motion.p>
+    <div className="page">
+      <section className="page-hero">
+        <div className="container page-hero__inner">
+          <Reveal>
+            <span className="section__eyebrow">Contact</span>
+            <h1 className="page-hero__title">
+              Get in <span className="text-accent">Touch</span>
+            </h1>
+            <p className="page-hero__desc">
+              Have a question or want to work with us? We would love to hear from you.
+            </p>
+          </Reveal>
         </div>
-      </div>
+      </section>
 
-      <section className="section container" style={{ paddingTop: 0 }}>
-        <div className="contact-grid">
-          <motion.form
-            className="contact-form"
-            onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                required
-                value={form.name}
-                onChange={handleChange}
-                placeholder="Your name"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                value={form.email}
-                onChange={handleChange}
-                placeholder="you@example.com"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="subject">Subject</label>
-              <select
-                id="subject"
-                name="subject"
-                required
-                value={form.subject}
-                onChange={handleChange}
-              >
-                <option value="">Select a topic</option>
-                <option value="general">General Inquiry</option>
-                <option value="partnership">Partnership</option>
-                <option value="press">Press & Media</option>
-                <option value="support">Game Support</option>
-                <option value="careers">Careers</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                value={form.message}
-                onChange={handleChange}
-                placeholder="Tell us what's on your mind..."
-              />
-            </div>
-            <MagneticButton type="submit" className="btn btn-primary glow-effect">
-              <MessageSquare size={18} />
-              Send Message
-            </MagneticButton>
-          </motion.form>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="contact-info-card">
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.5rem' }}>
-                Contact Information
-              </h3>
-
-              <div className="contact-info-item">
-                <div className="contact-info-icon">
-                  <Mail size={20} />
+      <section className="section">
+        <div className="container">
+          <div className="contact-layout">
+            <Reveal direction="left">
+              <form className="contact-form" onSubmit={handleSubmit}>
+                <div className="form-field">
+                  <label htmlFor="name">Name</label>
+                  <input
+                    id="name"
+                    required
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    placeholder="Your name"
+                  />
                 </div>
-                <div>
-                  <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>Email</div>
-                  <a
-                    href="mailto:hello@famzgames.com"
-                    style={{ color: 'var(--primary)' }}
+                <div className="form-field">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    id="email"
+                    type="email"
+                    required
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    placeholder="you@example.com"
+                  />
+                </div>
+                <div className="form-field">
+                  <label htmlFor="subject">Subject</label>
+                  <select
+                    id="subject"
+                    required
+                    value={form.subject}
+                    onChange={(e) => setForm({ ...form, subject: e.target.value })}
                   >
-                    hello@famzgames.com
-                  </a>
+                    <option value="">Select a topic</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="partnership">Partnership</option>
+                    <option value="press">Press & Media</option>
+                    <option value="support">Game Support</option>
+                  </select>
                 </div>
-              </div>
+                <div className="form-field">
+                  <label htmlFor="message">Message</label>
+                  <textarea
+                    id="message"
+                    required
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    placeholder="Tell us what's on your mind..."
+                  />
+                </div>
+                <button type="submit" className="btn btn--glow interactive">
+                  <Send size={16} /> Send Message
+                </button>
+              </form>
+            </Reveal>
 
-              <div className="contact-info-item">
-                <div className="contact-info-icon">
-                  <MapPin size={20} />
+            <Reveal direction="right" delay={0.15}>
+              <div className="contact-info">
+                <h3>Contact Information</h3>
+                <div className="contact-info__item">
+                  <div className="contact-info__icon">
+                    <Mail size={20} />
+                  </div>
+                  <div>
+                    <strong>Email</strong>
+                    <a href="mailto:hello@famzgames.com" className="interactive">
+                      hello@famzgames.com
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>Studio</div>
-                  <span style={{ color: 'var(--muted-foreground)' }}>
-                    Independent Game Studio
-                    <br />
-                    Est. 2019
-                  </span>
+                <div className="contact-info__item">
+                  <div className="contact-info__icon">
+                    <MapPin size={20} />
+                  </div>
+                  <div>
+                    <strong>Studio</strong>
+                    <span>Independent Game Studio · Est. 2019</span>
+                  </div>
+                </div>
+                <div className="contact-info__card">
+                  <strong>Join our community</strong>
+                  <p>Connect on Discord, Twitter, and YouTube for updates and behind-the-scenes content.</p>
                 </div>
               </div>
-
-              <div
-                style={{
-                  marginTop: '2rem',
-                  padding: '1.5rem',
-                  borderRadius: 'var(--radius)',
-                  background: 'rgba(34, 211, 238, 0.05)',
-                  border: '1px solid rgba(34, 211, 238, 0.15)',
-                }}
-              >
-                <div style={{ fontWeight: 600, marginBottom: '0.5rem' }}>
-                  Join our community
-                </div>
-                <p style={{ fontSize: '0.875rem', color: 'var(--muted-foreground)' }}>
-                  Connect with us on Discord, Twitter, and YouTube for the latest updates
-                  and behind-the-scenes content.
-                </p>
-              </div>
-            </div>
-          </motion.div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -179,15 +124,15 @@ export default function Contact() {
         {sent && (
           <motion.div
             className="toast"
-            initial={{ opacity: 0, y: 20, x: 20 }}
-            animate={{ opacity: 1, y: 0, x: 0 }}
-            exit={{ opacity: 0, y: 20, x: 20 }}
+            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 30, scale: 0.9 }}
           >
-            <CheckCircle size={20} color="var(--primary)" />
+            <CheckCircle size={20} />
             Message sent successfully!
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 }

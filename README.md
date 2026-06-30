@@ -1,73 +1,50 @@
-# FAMZ Games Website
+# FAMZ Games — Cinematic 3D Website
 
-An interactive indie game studio website with 3D animations, built with React, Three.js, and Framer Motion.
+A completely redesigned interactive gaming studio website with persistent WebGL, scroll-driven 3D camera, and cinematic UI.
 
-Inspired by [famzgames.com](https://famzgames.com/) with enhanced interactivity and immersive 3D visuals.
+Inspired by [famzgames.com](https://famzgames.com/).
 
-## Features
+## What's New in v2
 
-- **3D Hero Scene** — Interactive Three.js background with floating shapes, particle field, and mouse parallax
-- **3D Game Showcase** — Rotating game cubes representing each title
-- **Interactive Game Cards** — 3D tilt effect on hover with scroll-triggered animations
-- **Magnetic Buttons** — Buttons that follow cursor movement
-- **Cursor Glow** — Ambient light effect following the mouse
-- **Page Transitions** — Smooth animated route changes
-- **Genre Filters** — Interactive game filtering on the Games page
-- **Responsive Design** — Mobile-friendly layout with hamburger navigation
-
-## Pages
-
-- **Home** — Hero with 3D scene, stats, featured games, 3D showcase
-- **Games** — Full game catalog with genre filters
-- **About** — Studio story, values, and team
-- **Blog** — News and announcements
-- **Contact** — Contact form with validation
+| Feature | Description |
+|---------|-------------|
+| **Persistent 3D World** | Full-screen WebGL scene stays mounted behind all content |
+| **Bloom + Chromatic Aberration** | Post-processing for cinematic neon glow |
+| **Scroll-Driven Camera** | 3D camera moves deeper as you scroll |
+| **Mouse Parallax** | Scene reacts to cursor position in real-time |
+| **3D Game Carousel** | Click-through carousel with CSS 3D perspective transforms |
+| **Animated Loader** | Branded loading screen with progress bar |
+| **Custom Cursor** | Dot + ring cursor with hover states |
+| **Smooth Scroll** | Lenis-powered buttery scroll experience |
+| **Animated Counters** | Stats count up on scroll into view |
+| **Glass Morphism UI** | Frosted glass sections over the 3D world |
 
 ## Tech Stack
 
-- React 18 + Vite
-- React Router
-- Three.js + React Three Fiber + Drei
+- React 18 + Vite 6
+- Three.js + React Three Fiber + Drei + Postprocessing
 - Framer Motion
-- Lucide React icons
+- GSAP-ready architecture
+- Lenis smooth scroll
 
-## Development
+## Run
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Build for Production
+## Build & Deploy
 
 ```bash
 npm run build
+# Upload dist/ to Hostinger public_html
 ```
 
-Output goes to `dist/` — upload to Hostinger or any static hosting.
+## Pages
 
-## Deploy to Hostinger
-
-1. Run `npm run build`
-2. Upload contents of `dist/` to `public_html`
-3. Add a `.htaccess` rewrite for SPA routing (if using Apache):
-
-```apache
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
-</IfModule>
-```
-
-## Games Portfolio
-
-- Pixel Quest — Retro adventure
-- Neon Runners — Neon parkour racing
-- Mystic Realms — Fantasy RPG
-- Cyber Clash — Cyberpunk action
-- Space Odyssey — Open-world exploration
-- Adventure Legends — Co-op quests
+- **Home** — Cinematic hero, stats, 3D carousel, game grid
+- **Games** — Full catalog with genre filters and panel layout
+- **About** — Studio story, values, team
+- **Blog** — News articles
+- **Contact** — Form with toast confirmation

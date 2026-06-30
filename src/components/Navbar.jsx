@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 
 const links = [
   { name: 'Home', path: '/' },
@@ -12,72 +12,68 @@ const links = [
 ];
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    const fn = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', fn);
+    return () => window.removeEventListener('scroll', fn);
   }, []);
 
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [location.pathname]);
+  useEffect(() => setOpen(false), [location.pathname]);
 
   return (
     <>
-      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-        <div className="container navbar-inner">
-          <Link to="/" className="brand gradient-text">
-            FAMZ Games
+      <header className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
+        <div className="nav__inner container">
+          <Link to="/" className="nav__brand interactive">
+            <span className="nav__brand-famz">FAMZ</span>
+            <span className="nav__brand-games">GAMES</span>
           </Link>
 
-          <div className="nav-links">
-            {links.map((link) => (
+          <nav className="nav__links">
+            {links.map((l) => (
               <Link
-                key={link.path}
-                to={link.path}
-                className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                key={l.path}
+                to={l.path}
+                className={`nav__link interactive ${location.pathname === l.path ? 'nav__link--active' : ''}`}
               >
-                {link.name}
+                <span className="nav__link-text">{l.name}</span>
+                <span className="nav__link-line" />
               </Link>
             ))}
-          </div>
+          </nav>
 
-          <button
-            className="mobile-toggle"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          <Link to="/games" className="nav__cta btn btn--glow interactive">
+            Play Now
+          </Link>
+
+          <button className="nav__toggle interactive" onClick={() => setOpen(!open)} aria-label="Menu">
+            {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
-      </nav>
+      </header>
 
       <AnimatePresence>
-        {mobileOpen && (
+        {open && (
           <motion.div
-            className="mobile-menu"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            className="nav__mobile"
+            initial={{ clipPath: 'circle(0% at calc(100% - 2rem) 2rem)' }}
+            animate={{ clipPath: 'circle(150% at calc(100% - 2rem) 2rem)' }}
+            exit={{ clipPath: 'circle(0% at calc(100% - 2rem) 2rem)' }}
+            transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
           >
-            {links.map((link, i) => (
+            {links.map((l, i) => (
               <motion.div
-                key={link.path}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05 }}
+                key={l.path}
+                initial={{ opacity: 0, x: 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 + i * 0.07 }}
               >
-                <Link
-                  to={link.path}
-                  className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {link.name}
+                <Link to={l.path} className="nav__mobile-link interactive" onClick={() => setOpen(false)}>
+                  {l.name}
                 </Link>
               </motion.div>
             ))}
