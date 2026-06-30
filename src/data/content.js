@@ -79,6 +79,57 @@ export const games = [
   },
 ];
 
+/** Hero slider — rotating banners at the top of the homepage (images + video trailers) */
+export const heroSlides = [
+  {
+    id: 1,
+    type: 'video',
+    title: 'Pixel Quest',
+    tagline: 'Retro Adventure Awaits',
+    genre: 'Adventure',
+    color: '#00f0ff',
+    poster: 'https://images.unsplash.com/photo-1589587570540-8d163dc13461?w=1200&q=80',
+    src: 'https://assets.mixkit.co/videos/preview/mixkit-arcade-space-shooter-ship-moving-on-space-background-4026-large.mp4',
+  },
+  {
+    id: 2,
+    type: 'image',
+    title: 'Neon Runners',
+    tagline: 'Speed. Style. Survival.',
+    genre: 'Racing',
+    color: '#ff00aa',
+    src: 'https://images.unsplash.com/photo-1612404730960-5c71577fca11?w=1200&q=80',
+  },
+  {
+    id: 3,
+    type: 'video',
+    title: 'Cyber Clash',
+    tagline: 'Hack. Fight. Dominate.',
+    genre: 'Action',
+    color: '#ff3366',
+    poster: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1200&q=80',
+    src: 'https://assets.mixkit.co/videos/preview/mixkit-gaming-console-joystick-close-up-4485-large.mp4',
+  },
+  {
+    id: 4,
+    type: 'image',
+    title: 'Mystic Realms',
+    tagline: 'Magic Lives Here',
+    genre: 'RPG',
+    color: '#8b5cf6',
+    src: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&q=80',
+  },
+  {
+    id: 5,
+    type: 'image',
+    title: 'Space Odyssey',
+    tagline: 'Beyond the Stars',
+    genre: 'Exploration',
+    color: '#3b82f6',
+    src: 'https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=1200&q=80',
+  },
+];
+
 export const blogPosts = [
   {
     id: 1,
