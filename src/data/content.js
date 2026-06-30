@@ -125,15 +125,6 @@ export const heroSlides = [
   },
   {
     id: 3,
-    type: 'image',
-    title: 'Famz BOP',
-    tagline: 'Speed. Style. Survival.',
-    genre: 'Racing',
-    color: '#ff00aa',
-    src: 'https://images.unsplash.com/photo-1612404730960-5c71577fca11?w=1200&q=80',
-  },
-  {
-    id: 3,
     type: 'video',
     title: 'Cyber Clash',
     tagline: 'Hack. Fight. Dominate.',
