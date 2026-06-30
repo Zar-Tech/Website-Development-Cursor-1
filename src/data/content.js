@@ -1,20 +1,20 @@
 export const games = [
   {
     id: 1,
-    title: 'Pixel Quest',
-    tagline: 'Retro Adventure Awaits',
+    title: 'Brain Dash',
+    tagline: 'Fast-paced trivia game — test your brain, beat the clock.',
     description:
-      'Embark on a retro-inspired adventure through pixelated worlds filled with challenging puzzles and hidden secrets.',
-    image: 'https://images.unsplash.com/photo-1589587570540-8d163dc13461?w=900&q=80',
+      'Think fast. Answer faster. Brain Dash is the addictive trivia game that turns your everyday knowledge into a race against the clock.',
+    image: '/games/brain-dash.jpg',
     rating: 94.3,
     players: '2,847',
-    genre: 'Adventure',
+    genre: 'Trivia,Strategy',
     color: '#00f0ff',
     accent: '#7c3aed',
   },
   {
     id: 2,
-    title: 'Neon Runners',
+    title: 'Famz BOP',
     tagline: 'Speed. Style. Survival.',
     description:
       'Race through neon-lit cityscapes in this fast-paced parkour game where every second counts.',
@@ -83,18 +83,17 @@ export const games = [
 export const heroSlides = [
   {
     id: 1,
-    type: 'video',
-    title: 'Pixel Quest',
-    tagline: 'Retro Adventure Awaits',
-    genre: 'Adventure',
-    color: '#00f0ff',
-    poster: 'https://images.unsplash.com/photo-1589587570540-8d163dc13461?w=1200&q=80',
-    src: 'https://assets.mixkit.co/videos/preview/mixkit-arcade-space-shooter-ship-moving-on-space-background-4026-large.mp4',
+    type: 'image',
+    title: 'Brain Dash',
+    tagline: 'Fast-paced trivia — test your brain, beat the clock.',
+    genre: 'Trivia',
+    color: '#a78bfa',
+    src: '/games/brain-dash.jpg',
   },
   {
     id: 2,
     type: 'image',
-    title: 'Neon Runners',
+    title: 'Famz BOP',
     tagline: 'Speed. Style. Survival.',
     genre: 'Racing',
     color: '#ff00aa',
@@ -137,7 +136,7 @@ export const blogPosts = [
     date: 'April 18, 2026',
     excerpt:
       'After months of development and community feedback, we are thrilled to announce the official release of Pixel Quest.',
-    image: 'https://images.unsplash.com/photo-1589587570540-8d163dc13461?w=800&q=80',
+    image: 'https://play.google.com/store/apps/details?id=com.famzgames.braindash',
   },
   {
     id: 2,
