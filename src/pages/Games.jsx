@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Play, Star, Users, Filter } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import { games } from '../data/content';
+import { getGameImage } from '../utils/gameImage';
 
 const genres = ['All', ...new Set(games.map((g) => g.genre))];
 
@@ -54,7 +55,7 @@ export default function Games() {
                   onMouseLeave={() => setHovered(null)}
                 >
                   <div className="game-panel__visual">
-                    <img src={game.image} alt={game.title} />
+                    <img src={getGameImage(game, 'panel')} alt={game.title} />
                     <div className="game-panel__visual-overlay" />
                     <div className="game-panel__number">0{game.id}</div>
                   </div>

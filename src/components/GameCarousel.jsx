@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, Users, Play } from 'lucide-react';
 import { games } from '../data/content';
+import { getGameImage } from '../utils/gameImage';
 import { useApp } from '../context/AppContext';
 
 export default function GameCarousel() {
@@ -47,7 +48,7 @@ export default function GameCarousel() {
             >
               <div className="carousel__card-frame" />
               <div className="carousel__card-img">
-                <img src={g.image} alt={g.title} draggable={false} />
+                <img src={getGameImage(g, 'card')} alt={g.title} draggable={false} />
                 <div className="carousel__card-gradient" />
                 {isActive && (
                   <motion.div

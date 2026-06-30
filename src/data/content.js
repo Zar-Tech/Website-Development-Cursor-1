@@ -5,7 +5,14 @@ export const games = [
     tagline: 'Fast-paced trivia game — test your brain, beat the clock.',
     description:
       'Think fast. Answer faster. Brain Dash is the addictive trivia game that turns your everyday knowledge into a race against the clock.',
-    image: '/games/brain-dash.jpg',
+    image: '/games/brain-dash-card.jpg',
+    images: {
+      icon: '/games/brain-dash-icon.png',
+      hero: '/games/brain-dash-hero.jpg',
+      card: '/games/brain-dash-card.jpg',
+      tile: '/games/brain-dash-tile.jpg',
+      panel: '/games/brain-dash-panel.jpg',
+    },
     rating: 94.3,
     players: '2,847',
     genre: 'Trivia,Strategy',
@@ -88,7 +95,12 @@ export const heroSlides = [
     tagline: 'Fast-paced trivia — test your brain, beat the clock.',
     genre: 'Trivia',
     color: '#a78bfa',
-    src: '/games/brain-dash.jpg',
+    src: '/games/brain-dash-hero.jpg',
+    images: {
+      hero: '/games/brain-dash-hero.jpg',
+      card: '/games/brain-dash-card.jpg',
+      poster: '/games/brain-dash-hero.jpg',
+    },
   },
   {
     id: 2,

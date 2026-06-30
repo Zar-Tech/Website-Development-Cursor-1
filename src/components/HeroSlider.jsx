@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Play, Pause, Image, Film } from 'lucide-react';
 import { heroSlides } from '../data/content';
+import { getSlideImage } from '../utils/gameImage';
 
 const AUTOPLAY_MS = 5500;
 
@@ -83,14 +84,18 @@ export default function HeroSlider() {
                 ref={videoRef}
                 className="hero-slider__media"
                 src={slide.src}
-                poster={slide.poster}
+                poster={getSlideImage(slide, 'hero')}
                 muted
                 loop
                 playsInline
                 autoPlay
               />
             ) : (
-              <img className="hero-slider__media" src={slide.src} alt={slide.title} />
+              <img
+                className="hero-slider__media"
+                src={getSlideImage(slide, 'hero')}
+                alt={slide.title}
+              />
             )}
             <div
               className="hero-slider__tint"

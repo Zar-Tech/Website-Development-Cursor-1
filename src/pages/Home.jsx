@@ -7,6 +7,7 @@ import StatsBar from '../components/StatsBar';
 import Marquee from '../components/Marquee';
 import Reveal from '../components/Reveal';
 import { games } from '../data/content';
+import { getGameImage } from '../utils/gameImage';
 
 export default function Home() {
   return (
@@ -160,7 +161,7 @@ export default function Home() {
                 >
                   <div className="game-tile__border" />
                   <div className="game-tile__img">
-                    <img src={g.image} alt={g.title} loading="lazy" />
+                    <img src={getGameImage(g, 'tile')} alt={g.title} loading="lazy" />
                   </div>
                   <div className="game-tile__overlay" />
                   <div className="game-tile__rating">
