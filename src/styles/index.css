@@ -629,7 +629,16 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 
 .hero--split {
   justify-content: flex-start;
-  padding-top: 6.5rem;
+  padding-top: 5.5rem;
+  min-height: auto;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .hero--split {
+    min-height: 100vh;
+    padding-bottom: 5rem;
+  }
 }
 
 .hero__split {
@@ -786,7 +795,7 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 
 .hero-slider__title {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 0.15rem;
@@ -948,14 +957,14 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1.25rem;
+  padding: 0.4rem 1rem;
   border-radius: 999px;
   border: 1px solid rgba(0, 240, 255, 0.35);
   background: rgba(0, 240, 255, 0.08);
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--cyan);
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.75rem;
   letter-spacing: 0.04em;
   overflow: hidden;
 }
@@ -972,14 +981,14 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
   100% { transform: translateX(100%); }
 }
 
-.hero__title-wrap { overflow: hidden; margin-bottom: 1.75rem; }
+.hero__title-wrap { overflow: hidden; margin-bottom: 1.25rem; }
 
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 10vw, 7.5rem);
+  font-size: clamp(2rem, 5.5vw, 3.75rem);
   font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
 }
 
 .hero__line { display: block; }
@@ -989,11 +998,11 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 }
 
 .hero__sub {
-  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  font-size: clamp(0.9rem, 1.8vw, 1.05rem);
   color: var(--muted);
-  max-width: 560px;
-  margin: 0 auto 2.75rem;
-  line-height: 1.75;
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  line-height: 1.65;
 }
 
 .hero__actions {
@@ -1097,14 +1106,14 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 
 .section__title {
   font-family: var(--font-display);
-  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-size: clamp(1.65rem, 3.5vw, 2.35rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
-  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
 }
 
 .section__desc {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   color: var(--muted);
   max-width: 500px;
   margin: 0 auto;
@@ -1157,7 +1166,7 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 
 .stats-bar__value {
   font-family: var(--font-display);
-  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
   font-weight: 800;
   background: var(--gradient-1);
   -webkit-background-clip: text;
@@ -1473,7 +1482,7 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 
 .game-tile h3 {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   font-weight: 800;
   margin: 0.25rem 0;
 }
@@ -1555,7 +1564,7 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 
 .cta-block h2 {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
   font-weight: 800;
   margin-bottom: 0.75rem;
   position: relative;
