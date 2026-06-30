@@ -16,7 +16,7 @@ export default function Loader() {
 
       if (progressRef.current >= 100) {
         clearInterval(interval);
-        setTimeout(finishLoading, 400);
+        setTimeout(finishLoading, 500);
       }
     }, 120);
     return () => clearInterval(interval);
@@ -27,18 +27,30 @@ export default function Loader() {
       {loading && (
         <motion.div
           className="loader"
-          exit={{ opacity: 0, scale: 1.1 }}
-          transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
         >
-          <div className="loader-inner">
+          <div className="loader__aurora" aria-hidden="true">
+            <div className="loader__blob loader__blob--1" />
+            <div className="loader__blob loader__blob--2" />
+          </div>
+
+          <motion.div
+            className="loader-inner"
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <div className="loader-logo">
               <span className="loader-logo-famz">FAMZ</span>
               <span className="loader-logo-games">GAMES</span>
             </div>
+
             <div className="loader-ring">
-              <div className="loader-ring-inner" />
               <div className="loader-ring-outer" />
+              <div className="loader-ring-inner" />
+              <div className="loader-ring-core" />
             </div>
+
             <div className="loader-bar-track">
               <div className="loader-bar-fill" id="loader-bar" />
             </div>
@@ -46,7 +58,7 @@ export default function Loader() {
               0%
             </div>
             <p className="loader-text">Loading immersive experience...</p>
-          </div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

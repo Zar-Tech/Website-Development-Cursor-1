@@ -46,8 +46,9 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <Link to="/games" className="nav__cta btn btn--glow interactive">
-            Play Now
+          <Link to="/games" className="nav__cta btn btn--primary interactive">
+            <span className="btn__bg" />
+            <span className="btn__text">Play Now</span>
           </Link>
 
           <button className="nav__toggle interactive" onClick={() => setOpen(!open)} aria-label="Menu">

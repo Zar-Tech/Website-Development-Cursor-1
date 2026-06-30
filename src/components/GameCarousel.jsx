@@ -7,23 +7,20 @@ import { useApp } from '../context/AppContext';
 export default function GameCarousel() {
   const [index, setIndex] = useState(0);
   const { setActiveGame } = useApp();
-  const dragRef = useRef(null);
   const game = games[index];
 
-  const prev = () => {
-    const next = (index - 1 + games.length) % games.length;
-    setIndex(next);
-    setActiveGame(next);
+  const go = (i) => {
+    setIndex(i);
+    setActiveGame(i);
   };
 
-  const next = () => {
-    const n = (index + 1) % games.length;
-    setIndex(n);
-    setActiveGame(n);
-  };
+  const prev = () => go((index - 1 + games.length) % games.length);
+  const next = () => go((index + 1) % games.length);
 
   return (
-    <div className="carousel" ref={dragRef}>
+    <div className="carousel">
+      <div className="carousel__glow" style={{ background: `radial-gradient(ellipse, ${game.color}22 0%, transparent 70%)` }} />
+
       <div className="carousel__stage">
         {games.map((g, i) => {
           const offset = i - index;
@@ -35,46 +32,53 @@ export default function GameCarousel() {
               key={g.id}
               className={`carousel__card interactive ${isActive ? 'carousel__card--active' : ''}`}
               animate={{
-                x: offset * 280,
-                z: isActive ? 0 : -abs * 120,
-                rotateY: offset * -18,
-                scale: isActive ? 1 : 0.82,
-                opacity: abs > 2 ? 0 : isActive ? 1 : 0.5,
+                x: offset * 300,
+                z: isActive ? 0 : -abs * 140,
+                rotateY: offset * -20,
+                scale: isActive ? 1 : 0.78,
+                opacity: abs > 2 ? 0 : isActive ? 1 : 0.45,
               }}
-              transition={{ type: 'spring', stiffness: 200, damping: 28 }}
+              transition={{ type: 'spring', stiffness: 180, damping: 26 }}
               style={{
                 zIndex: games.length - abs,
-                borderColor: isActive ? g.color : 'transparent',
-                boxShadow: isActive ? `0 0 40px ${g.color}44, 0 20px 60px rgba(0,0,0,0.5)` : 'none',
+                '--card-color': g.color,
               }}
-              onClick={() => {
-                if (!isActive) {
-                  setIndex(i);
-                  setActiveGame(i);
-                }
-              }}
+              onClick={() => !isActive && go(i)}
             >
+              <div className="carousel__card-frame" />
               <div className="carousel__card-img">
                 <img src={g.image} alt={g.title} draggable={false} />
-                <div className="carousel__card-gradient" style={{ background: `linear-gradient(to top, ${g.color}33, transparent)` }} />
+                <div className="carousel__card-gradient" />
+                {isActive && (
+                  <motion.div
+                    className="carousel__play-btn"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    <Play size={22} fill="white" color="white" />
+                  </motion.div>
+                )}
               </div>
               <div className="carousel__card-body">
-                <span className="carousel__genre" style={{ color: g.color }}>
-                  {g.genre}
-                </span>
+                <div className="carousel__card-top">
+                  <span className="carousel__genre">{g.genre}</span>
+                  {isActive && (
+                    <span className="carousel__rating-badge">
+                      <Star size={11} fill="#fbbf24" color="#fbbf24" /> {g.rating}%
+                    </span>
+                  )}
+                </div>
                 <h3>{g.title}</h3>
                 <p>{g.tagline}</p>
                 {isActive && (
                   <motion.div
                     className="carousel__card-meta"
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                   >
                     <span>
-                      <Star size={13} fill="#fbbf24" color="#fbbf24" /> {g.rating}%
-                    </span>
-                    <span>
-                      <Users size={13} /> {g.players}
+                      <Users size={13} /> {g.players} players
                     </span>
                   </motion.div>
                 )}
@@ -94,11 +98,8 @@ export default function GameCarousel() {
             <button
               key={g.id}
               className={`carousel__dot interactive ${i === index ? 'carousel__dot--active' : ''}`}
-              style={{ background: i === index ? g.color : undefined }}
-              onClick={() => {
-                setIndex(i);
-                setActiveGame(i);
-              }}
+              style={{ '--dot-color': g.color }}
+              onClick={() => go(i)}
               aria-label={g.title}
             />
           ))}
@@ -117,8 +118,11 @@ export default function GameCarousel() {
         transition={{ duration: 0.4 }}
       >
         <p>{game.description}</p>
-        <button className="btn btn--glow interactive" style={{ borderColor: game.color, color: game.color }}>
-          <Play size={16} fill="currentColor" /> Play {game.title}
+        <button className="btn btn--primary interactive" style={{ '--btn-color': game.color }}>
+          <span className="btn__bg" />
+          <span className="btn__text">
+            <Play size={16} fill="currentColor" /> Play {game.title}
+          </span>
         </button>
       </motion.div>
     </div>

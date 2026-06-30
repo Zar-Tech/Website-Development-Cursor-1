@@ -1,16 +1,22 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowDown, ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowDown, ArrowRight, Sparkles, Zap } from 'lucide-react';
 import GameCarousel from '../components/GameCarousel';
 import StatsBar from '../components/StatsBar';
+import Marquee from '../components/Marquee';
 import Reveal from '../components/Reveal';
 import { games } from '../data/content';
 
 export default function Home() {
   return (
     <div className="home">
-      {/* HERO */}
       <section className="hero">
+        <div className="hero__orbs" aria-hidden="true">
+          <div className="hero__orb hero__orb--1" />
+          <div className="hero__orb hero__orb--2" />
+          <div className="hero__orb hero__orb--3" />
+        </div>
+
         <div className="hero__content container">
           <motion.div
             className="hero__badge"
@@ -19,7 +25,8 @@ export default function Home() {
             transition={{ delay: 0.8, duration: 0.5 }}
           >
             <Sparkles size={14} />
-            New games launching soon
+            <span>New games launching soon</span>
+            <span className="hero__badge-pulse" />
           </motion.div>
 
           <div className="hero__title-wrap">
@@ -30,7 +37,9 @@ export default function Home() {
               transition={{ delay: 1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
               <span className="hero__line">Where Worlds</span>
-              <span className="hero__line hero__line--accent">Come to Life</span>
+              <span className="hero__line hero__line--accent">
+                <span className="shimmer-text">Come to Life</span>
+              </span>
             </motion.h1>
           </div>
 
@@ -50,12 +59,28 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.4, duration: 0.6 }}
           >
-            <Link to="/games" className="btn btn--glow btn--lg interactive">
-              Explore Games <ArrowRight size={18} />
+            <Link to="/games" className="btn btn--primary btn--lg interactive">
+              <span className="btn__bg" />
+              <span className="btn__text">
+                Explore Games <ArrowRight size={18} />
+              </span>
             </Link>
             <Link to="/contact" className="btn btn--ghost btn--lg interactive">
               Get in Touch
             </Link>
+          </motion.div>
+
+          <motion.div
+            className="hero__tags"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.6 }}
+          >
+            {['Adventure', 'Racing', 'RPG', 'Action'].map((tag) => (
+              <span key={tag} className="hero__tag">
+                <Zap size={11} /> {tag}
+              </span>
+            ))}
           </motion.div>
         </div>
 
@@ -66,18 +91,20 @@ export default function Home() {
           transition={{ delay: 2 }}
         >
           <span>Scroll to explore</span>
-          <ArrowDown size={18} className="hero__scroll-icon" />
+          <div className="hero__scroll-line">
+            <div className="hero__scroll-dot" />
+          </div>
         </motion.div>
       </section>
 
-      {/* STATS */}
+      <Marquee />
+
       <section className="section section--glass">
         <div className="container">
           <StatsBar />
         </div>
       </section>
 
-      {/* 3D CAROUSEL */}
       <section className="section section--carousel" id="games">
         <div className="container">
           <Reveal>
@@ -95,7 +122,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* GAME GRID PREVIEW */}
       <section className="section">
         <div className="container">
           <Reveal>
@@ -112,12 +138,16 @@ export default function Home() {
               <Reveal key={g.id} delay={i * 0.08}>
                 <article
                   className="game-tile interactive"
-                  style={{ '--tile-color': g.color }}
+                  style={{ '--tile-color': g.color, '--tile-accent': g.accent }}
                 >
+                  <div className="game-tile__border" />
                   <div className="game-tile__img">
                     <img src={g.image} alt={g.title} loading="lazy" />
                   </div>
                   <div className="game-tile__overlay" />
+                  <div className="game-tile__rating">
+                    <span>{g.rating}%</span>
+                  </div>
                   <div className="game-tile__content">
                     <span className="game-tile__genre">{g.genre}</span>
                     <h3>{g.title}</h3>
@@ -130,23 +160,33 @@ export default function Home() {
           </div>
 
           <Reveal className="section__cta-wrap">
-            <Link to="/games" className="btn btn--glow interactive">
-              View All Games <ArrowRight size={18} />
+            <Link to="/games" className="btn btn--primary interactive">
+              <span className="btn__bg" />
+              <span className="btn__text">
+                View All Games <ArrowRight size={18} />
+              </span>
             </Link>
           </Reveal>
         </div>
       </section>
 
-      {/* CTA */}
       <section className="section">
         <div className="container">
           <Reveal>
             <div className="cta-block">
+              <div className="cta-block__rings" aria-hidden="true">
+                <div className="cta-block__ring" />
+                <div className="cta-block__ring cta-block__ring--2" />
+              </div>
               <div className="cta-block__glow" />
+              <span className="cta-block__label">Join the adventure</span>
               <h2>Ready to Play?</h2>
               <p>Join our community and be the first to experience new releases.</p>
-              <Link to="/contact" className="btn btn--glow btn--lg interactive">
-                Join the Community <ArrowRight size={18} />
+              <Link to="/contact" className="btn btn--primary btn--lg interactive">
+                <span className="btn__bg" />
+                <span className="btn__text">
+                  Join the Community <ArrowRight size={18} />
+                </span>
               </Link>
             </div>
           </Reveal>

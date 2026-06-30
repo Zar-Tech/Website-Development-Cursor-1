@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import WorldCanvas from './components/WorldCanvas';
+import AuroraBackground from './components/AuroraBackground';
 import Loader from './components/Loader';
 import CustomCursor from './components/CustomCursor';
 import SmoothScroll from './components/SmoothScroll';
@@ -18,6 +19,7 @@ export default function App() {
     <AppProvider>
       <Loader />
       <WorldCanvas />
+      <AuroraBackground />
       <CustomCursor />
       <SmoothScroll>
         <div className="app-shell">
