@@ -1279,13 +1279,20 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
   background: linear-gradient(to top, rgba(2,3,8,0.95) 0%, transparent 55%);
 }
 
-.carousel__play-btn {
+.carousel__play-wrap {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.carousel__play-btn {
   width: 56px;
   height: 56px;
+  border: none;
   border-radius: 50%;
   background: rgba(0, 240, 255, 0.9);
   display: flex;
@@ -1293,6 +1300,14 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
   justify-content: center;
   box-shadow: 0 0 30px rgba(0, 240, 255, 0.6);
   color: #020308;
+  cursor: pointer;
+  pointer-events: auto;
+  padding: 0;
+  padding-left: 3px;
+}
+
+.carousel__play-btn svg {
+  flex-shrink: 0;
 }
 
 .carousel__card-body { padding: 1.25rem 1.5rem 1.5rem; }
@@ -1878,11 +1893,6 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 .about-story strong {
   color: var(--cyan);
   font-weight: 600;
-}
-
-.section--compact {
-  padding-top: 0;
-  padding-bottom: 2rem;
 }
 
 .values-grid {

@@ -51,14 +51,18 @@ export default function GameCarousel() {
                 <img src={getGameImage(g, 'card')} alt={g.title} draggable={false} />
                 <div className="carousel__card-gradient" />
                 {isActive && (
-                  <motion.div
-                    className="carousel__play-btn"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 300 }}
-                  >
-                    <Play size={22} fill="white" color="white" />
-                  </motion.div>
+                  <div className="carousel__play-wrap">
+                    <motion.button
+                      type="button"
+                      className="carousel__play-btn interactive"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: 'spring', stiffness: 300 }}
+                      aria-label={`Play ${g.title}`}
+                    >
+                      <Play size={22} fill="white" color="white" />
+                    </motion.button>
+                  </div>
                 )}
               </div>
               <div className="carousel__card-body">
