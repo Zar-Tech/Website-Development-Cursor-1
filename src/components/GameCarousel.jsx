@@ -1,33 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, Users, Play } from 'lucide-react';
+import GamePlayLink from './GamePlayLink';
 import { games } from '../data/content';
 import { getGameImage } from '../utils/gameImage';
 import { useApp } from '../context/AppContext';
-
-function GamePlayLink({ game, className, children, onClick, style }) {
-  if (game.playUrl) {
-    return (
-      <a
-        href={game.playUrl}
-        className={className}
-        style={style}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={onClick}
-      >
-        {children}
-      </a>
-    );
-  }
-
-  return (
-    <Link to="/games" className={className} style={style} onClick={onClick}>
-      {children}
-    </Link>
-  );
-}
 
 export default function GameCarousel() {
   const [index, setIndex] = useState(0);
@@ -154,6 +131,7 @@ export default function GameCarousel() {
           game={game}
           className="btn btn--primary interactive"
           style={{ '--btn-color': game.color }}
+          fallbackTo="/games"
         >
           <span className="btn__bg" />
           <span className="btn__text">

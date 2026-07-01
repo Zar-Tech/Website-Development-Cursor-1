@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Play, Star, Users, Filter } from 'lucide-react';
 import Reveal from '../components/Reveal';
+import GamePlayLink from '../components/GamePlayLink';
 import { games } from '../data/content';
 import { getGameImage } from '../utils/gameImage';
 
@@ -74,9 +75,13 @@ export default function Games() {
                     <h2>{game.title}</h2>
                     <p className="game-panel__tagline">{game.tagline}</p>
                     <p className="game-panel__desc">{game.description}</p>
-                    <button className="btn btn--glow interactive" style={{ borderColor: game.color, color: game.color }}>
+                    <GamePlayLink
+                      game={game}
+                      className="btn btn--glow interactive"
+                      style={{ borderColor: game.color, color: game.color }}
+                    >
                       <Play size={16} fill="currentColor" /> Play Now
-                    </button>
+                    </GamePlayLink>
                   </div>
                 </article>
               </Reveal>
