@@ -1,6 +1,5 @@
 import { Users, Zap, Heart, Gamepad2 } from 'lucide-react';
 import Reveal from '../components/Reveal';
-import StatsBar from '../components/StatsBar';
 import { games, values } from '../data/content';
 import { getGameImage } from '../utils/gameImage';
 
@@ -88,14 +87,6 @@ export default function About() {
                 them.
               </p>
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section section--compact">
-        <div className="container">
-          <Reveal>
-            <StatsBar />
           </Reveal>
         </div>
       </section>
