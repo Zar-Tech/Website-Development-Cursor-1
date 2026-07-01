@@ -188,29 +188,6 @@ export const blogPosts = [
   },
 ];
 
-export const team = [
-  {
-    name: 'Maya Chen',
-    role: 'Creative Director',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80',
-  },
-  {
-    name: 'Raj Patel',
-    role: 'Lead Developer',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
-  },
-  {
-    name: 'Lucia Torres',
-    role: 'Game Designer',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80',
-  },
-  {
-    name: 'Kwame Asante',
-    role: 'Art Director',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
-  },
-];
-
 export const values = [
   {
     title: 'Player-Focused Design',
