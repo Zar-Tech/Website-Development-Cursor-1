@@ -18,6 +18,7 @@ export const games = [
     genre: 'Trivia,Strategy',
     color: '#00f0ff',
     accent: '#7c3aed',
+    playUrl: 'https://play.google.com/store/apps/details?id=com.famzgames.braindash',
   },
   {
     id: 2,

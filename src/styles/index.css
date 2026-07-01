@@ -552,17 +552,26 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 
 .btn--primary .btn__bg {
   opacity: 1;
+  background: linear-gradient(
+    135deg,
+    var(--btn-color, #00f0ff),
+    color-mix(in srgb, var(--btn-color, #00f0ff) 45%, #ff00aa)
+  );
 }
 
 .btn--primary {
   color: #020308;
   font-weight: 700;
-  box-shadow: 0 4px 24px rgba(0, 240, 255, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  box-shadow:
+    0 4px 24px color-mix(in srgb, var(--btn-color, #00f0ff) 35%, transparent),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
 
 .btn--primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 40px rgba(0, 240, 255, 0.45), 0 4px 20px rgba(255, 0, 170, 0.2);
+  box-shadow:
+    0 8px 40px color-mix(in srgb, var(--btn-color, #00f0ff) 45%, transparent),
+    0 4px 20px rgba(255, 0, 170, 0.2);
 }
 
 .btn--primary::before {
@@ -1294,20 +1303,27 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
   height: 56px;
   border: none;
   border-radius: 50%;
-  background: rgba(0, 240, 255, 0.9);
+  background: color-mix(in srgb, var(--card-color) 88%, #ffffff);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 30px rgba(0, 240, 255, 0.6);
+  box-shadow: 0 0 30px color-mix(in srgb, var(--card-color) 55%, transparent);
   color: #020308;
   cursor: pointer;
   pointer-events: auto;
   padding: 0;
-  padding-left: 3px;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.carousel__play-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 40px color-mix(in srgb, var(--card-color) 70%, transparent);
 }
 
 .carousel__play-btn svg {
   flex-shrink: 0;
+  margin-left: 3px;
 }
 
 .carousel__card-body { padding: 1.25rem 1.5rem 1.5rem; }

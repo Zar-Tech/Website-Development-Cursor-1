@@ -1,9 +1,33 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, Users, Play } from 'lucide-react';
 import { games } from '../data/content';
 import { getGameImage } from '../utils/gameImage';
 import { useApp } from '../context/AppContext';
+
+function GamePlayLink({ game, className, children, onClick, style }) {
+  if (game.playUrl) {
+    return (
+      <a
+        href={game.playUrl}
+        className={className}
+        style={style}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={onClick}
+      >
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link to="/games" className={className} style={style} onClick={onClick}>
+      {children}
+    </Link>
+  );
+}
 
 export default function GameCarousel() {
   const [index, setIndex] = useState(0);
@@ -52,16 +76,19 @@ export default function GameCarousel() {
                 <div className="carousel__card-gradient" />
                 {isActive && (
                   <div className="carousel__play-wrap">
-                    <motion.button
-                      type="button"
-                      className="carousel__play-btn interactive"
+                    <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ type: 'spring', stiffness: 300 }}
-                      aria-label={`Play ${g.title}`}
                     >
-                      <Play size={22} fill="white" color="white" />
-                    </motion.button>
+                      <GamePlayLink
+                        game={g}
+                        className="carousel__play-btn interactive"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Play size={22} fill="currentColor" strokeWidth={0} />
+                      </GamePlayLink>
+                    </motion.div>
                   </div>
                 )}
               </div>
@@ -123,12 +150,16 @@ export default function GameCarousel() {
         transition={{ duration: 0.4 }}
       >
         <p>{game.description}</p>
-        <button className="btn btn--primary interactive" style={{ '--btn-color': game.color }}>
+        <GamePlayLink
+          game={game}
+          className="btn btn--primary interactive"
+          style={{ '--btn-color': game.color }}
+        >
           <span className="btn__bg" />
           <span className="btn__text">
             <Play size={16} fill="currentColor" /> Play {game.title}
           </span>
-        </button>
+        </GamePlayLink>
       </motion.div>
     </div>
   );
