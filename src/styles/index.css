@@ -803,7 +803,6 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 
 .hero-slider__tagline {
   font-size: 0.85rem;
-  color: var(--muted);
 }
 
 .hero-slider__controls {
@@ -999,7 +998,6 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 
 .hero__sub {
   font-size: clamp(0.9rem, 1.8vw, 1.05rem);
-  color: var(--muted);
   max-width: 480px;
   margin: 0 auto 2rem;
   line-height: 1.65;
@@ -1114,9 +1112,25 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 
 .section__desc {
   font-size: 0.95rem;
-  color: var(--muted);
+  color: #ffffff;
   max-width: 500px;
   margin: 0 auto;
+}
+
+/* Subtitle & description copy — white (headings keep gradient accents) */
+.hero__sub,
+.page-hero__desc,
+.carousel__detail p,
+.hero-slider__tagline,
+.cta-block p,
+.game-panel__desc,
+.about-story p,
+.blog-item__body p,
+.value-card p,
+.carousel__card-body p,
+.game-tile p,
+.footer__tagline {
+  color: #ffffff;
 }
 
 .section__cta-wrap { text-align: center; margin-top: 3rem; }
@@ -1319,7 +1333,6 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 
 .carousel__card-body p {
   font-size: 0.8rem;
-  color: var(--muted);
 }
 
 .carousel__card-meta {
@@ -1382,9 +1395,8 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 }
 
 .carousel__detail p {
-  color: var(--muted);
-  margin-bottom: 1.25rem;
   line-height: 1.7;
+  margin-bottom: 1.25rem;
 }
 
 /* ---- GAME GRID ---- */
@@ -1487,7 +1499,7 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
   margin: 0.25rem 0;
 }
 
-.game-tile p { font-size: 0.85rem; color: var(--muted); }
+.game-tile p { font-size: 0.85rem; }
 
 .game-tile__shine {
   position: absolute;
@@ -1571,7 +1583,6 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 }
 
 .cta-block p {
-  color: var(--muted);
   margin-bottom: 2rem;
   position: relative;
 }
@@ -1593,7 +1604,6 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 
 .page-hero__desc {
   font-size: 1.1rem;
-  color: var(--muted);
   max-width: 500px;
 }
 
@@ -1717,7 +1727,6 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 
 .game-panel__desc {
   font-size: 0.9rem;
-  color: var(--muted);
   line-height: 1.7;
   margin-bottom: 1.5rem;
 }
@@ -1747,7 +1756,6 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 
 .about-story p {
   font-size: 1.1rem;
-  color: var(--muted);
   line-height: 1.8;
   margin-bottom: 1.25rem;
 }
@@ -1785,7 +1793,7 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 }
 
 .value-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
-.value-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+.value-card p { font-size: 0.9rem; line-height: 1.6; }
 
 .team-grid {
   display: grid;
@@ -1892,7 +1900,6 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 
 .blog-item__body p {
   font-size: 0.9rem;
-  color: var(--muted);
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -2035,7 +2042,6 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 
 .footer__tagline {
   font-size: 0.875rem;
-  color: var(--muted);
   max-width: 280px;
   line-height: 1.6;
   margin-bottom: 1.25rem;
