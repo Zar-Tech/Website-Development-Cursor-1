@@ -9,8 +9,8 @@
   --surface-2: rgba(16, 24, 48, 0.6);
   --border: rgba(0, 240, 255, 0.15);
   --border-glow: rgba(0, 240, 255, 0.35);
-  --text: #f0f4ff;
-  --muted: #7b8cb8;
+  --text: #ffffff;
+  --muted: #b8c4e0;
   --cyan: #00f0ff;
   --magenta: #ff00aa;
   --purple: #8b5cf6;
@@ -57,10 +57,7 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
 }
 
 .text-accent {
-  background: var(--gradient-1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff;
 }
 
 /* ---- AURORA OVERLAY ---- */
@@ -143,25 +140,9 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ---- SHIMMER TEXT ---- */
+/* ---- SHIMMER TEXT (solid white) ---- */
 .shimmer-text {
-  background: linear-gradient(
-    90deg,
-    #00f0ff 0%,
-    #ffffff 25%,
-    #ff00aa 50%,
-    #8b5cf6 75%,
-    #00f0ff 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 4s linear infinite;
-}
-
-@keyframes shimmer {
-  to { background-position: 200% center; }
+  color: #ffffff;
 }
 
 /* ---- MARQUEE ---- */
@@ -315,10 +296,7 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
   font-size: 4rem;
   font-weight: 800;
   letter-spacing: 0.12em;
-  background: var(--gradient-1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff;
 }
 
 .loader-logo-games {
@@ -436,10 +414,7 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
   font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  background: var(--gradient-1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff;
 }
 
 .nav__brand-games {
@@ -1168,10 +1143,7 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 4vw, 2.25rem);
   font-weight: 800;
-  background: var(--gradient-1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff;
   line-height: 1;
   margin-bottom: 0.5rem;
 }
