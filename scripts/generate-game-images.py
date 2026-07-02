@@ -97,6 +97,12 @@ PRESETS = {
         "bg_bottom": (4, 18, 12),
         "glow": (34, 197, 94, 90),
     },
+    "dodge-and-survive": {
+        "src": OUT_DIR / "dodge-and-survive.png",
+        "bg_top": (8, 12, 32),
+        "bg_bottom": (18, 8, 36),
+        "glow": (0, 240, 255, 90),
+    },
 }
 
 
