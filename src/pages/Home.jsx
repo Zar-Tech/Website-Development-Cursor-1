@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Zap } from 'lucide-react';
-import HeroSlider from '../components/HeroSlider';
+import FeaturedShowcase from '../components/FeaturedShowcase';
 import GameCarousel from '../components/GameCarousel';
 import StatsBar from '../components/StatsBar';
 import Marquee from '../components/Marquee';
@@ -99,7 +99,7 @@ export default function Home() {
               <span className="hero__slider-label-dot" />
               Featured Showcase
             </p>
-            <HeroSlider />
+            <FeaturedShowcase />
           </motion.div>
         </div>
 

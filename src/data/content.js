@@ -94,66 +94,6 @@ export const games = [
   },
 ];
 
-/** Hero slider — rotating banners at the top of the homepage (images + video trailers) */
-export const heroSlides = [
-  {
-    id: 1,
-    type: 'image',
-    title: 'Brain Dash',
-    tagline: 'Fast-paced trivia — test your brain, beat the clock.',
-    genre: 'Trivia',
-    color: '#a78bfa',
-    src: '/games/brain-dash-hero.jpg',
-    images: {
-      hero: '/games/brain-dash-hero.jpg',
-      card: '/games/brain-dash-card.jpg',
-      poster: '/games/brain-dash-hero.jpg',
-    },
-  },
-  {
-    id: 2,
-    type: 'image',
-    title: 'XO Rivals',
-    tagline: 'Classic tic-tac-toe — outsmart your opponent.',
-    genre: 'Puzzle',
-    color: '#3b82f6',
-    src: '/games/xo-rivals-hero.jpg',
-    images: {
-      hero: '/games/xo-rivals-hero.jpg',
-      card: '/games/xo-rivals-card.jpg',
-      poster: '/games/xo-rivals-hero.jpg',
-    },
-  },
-  {
-    id: 3,
-    type: 'video',
-    title: 'Cyber Clash',
-    tagline: 'Hack. Fight. Dominate.',
-    genre: 'Action',
-    color: '#ff3366',
-    poster: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1200&q=80',
-    src: 'https://assets.mixkit.co/videos/preview/mixkit-gaming-console-joystick-close-up-4485-large.mp4',
-  },
-  {
-    id: 4,
-    type: 'image',
-    title: 'Mystic Realms',
-    tagline: 'Magic Lives Here',
-    genre: 'RPG',
-    color: '#8b5cf6',
-    src: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&q=80',
-  },
-  {
-    id: 5,
-    type: 'image',
-    title: 'Space Odyssey',
-    tagline: 'Beyond the Stars',
-    genre: 'Exploration',
-    color: '#3b82f6',
-    src: 'https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=1200&q=80',
-  },
-];
-
 export const blogPosts = [
   {
     id: 1,

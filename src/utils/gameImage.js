@@ -23,8 +23,3 @@ export function getGameImage(game, format = 'card') {
   if (format === 'icon' && game?.images?.icon) return game.images.icon;
   return game?.image || '';
 }
-
-export function getSlideImage(slide, format = 'hero') {
-  if (slide?.images?.[format]) return slide.images[format];
-  return slide?.src || slide?.poster || '';
-}
