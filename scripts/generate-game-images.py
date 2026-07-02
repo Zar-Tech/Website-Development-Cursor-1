@@ -91,12 +91,18 @@ PRESETS = {
         "bg_bottom": (12, 10, 32),
         "glow": (59, 130, 246, 90),
     },
+    "pocket-blackjack": {
+        "src": OUT_DIR / "pocket-blackjack.png",
+        "bg_top": (6, 28, 18),
+        "bg_bottom": (4, 18, 12),
+        "glow": (34, 197, 94, 90),
+    },
 }
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("preset", choices=PRESETS.keys(), nargs="?", default=None)
+    parser.add_argument("preset", choices=list(PRESETS.keys()), nargs="?", default=None)
     parser.add_argument("--slug", default=None)
     parser.add_argument("--src", default=None)
     args = parser.parse_args()

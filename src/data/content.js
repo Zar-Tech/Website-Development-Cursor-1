@@ -42,7 +42,7 @@ export const games = [
   },
   {
     id: 3,
-    title: 'Mystic Realms',
+    title: 'Famz Bop',
     tagline: 'Magic Lives Here',
     description:
       'Explore magical kingdoms and battle mythical creatures in this epic fantasy RPG adventure.',
@@ -55,16 +55,23 @@ export const games = [
   },
   {
     id: 4,
-    title: 'Cyber Clash',
-    tagline: 'Hack. Fight. Dominate.',
+    title: 'Pocket Blackjack',
+    tagline: 'Casino, Card, Blackjack',
     description:
-      'Engage in intense cyberpunk combat with customizable weapons and tactical team play.',
-    image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=900&q=80',
+      'Hit, stand, and chase 21 in a sleek pocket-sized blackjack experience. Play classic casino rules with smooth controls built for mobile.',
+    image: '/games/pocket-blackjack-card.jpg',
+    images: {
+      icon: '/games/pocket-blackjack-icon.png',
+      hero: '/games/pocket-blackjack-hero.jpg',
+      card: '/games/pocket-blackjack-card.jpg',
+      tile: '/games/pocket-blackjack-tile.jpg',
+      panel: '/games/pocket-blackjack-panel.jpg',
+    },
     rating: 89.5,
     players: '3,104',
-    genre: 'Action',
-    color: '#ff3366',
-    accent: '#00f0ff',
+    genre: 'Casino',
+    color: '#22c55e',
+    accent: '#eab308',
   },
   {
     id: 5,
