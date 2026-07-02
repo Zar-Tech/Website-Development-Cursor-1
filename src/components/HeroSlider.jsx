@@ -6,9 +6,13 @@ import { getGameImage } from '../utils/gameImage';
 import GamePlayLink from './GamePlayLink';
 
 const AUTOPLAY_MS = 5500;
-const slides = games.filter((game) => game.images?.icon);
+
+function getShowcaseImage(game) {
+  return game.images?.icon ? getGameImage(game, 'icon') : getGameImage(game, 'card');
+}
 
 export default function HeroSlider() {
+  const slides = games;
   const [index, setIndex] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [progress, setProgress] = useState(0);
@@ -78,7 +82,7 @@ export default function HeroSlider() {
             />
             <GamePlayLink game={slide} className="hero-slider__game interactive">
               <span className="hero-slider__icon">
-                <img src={getGameImage(slide, 'icon')} alt="" />
+                <img src={getShowcaseImage(slide)} alt="" />
               </span>
               <h3 className="hero-slider__title">{slide.title}</h3>
             </GamePlayLink>
