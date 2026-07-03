@@ -103,6 +103,12 @@ PRESETS = {
         "bg_bottom": (18, 8, 36),
         "glow": (0, 240, 255, 90),
     },
+    "void-hunter": {
+        "src": OUT_DIR / "void-hunter.png",
+        "bg_top": (10, 8, 28),
+        "bg_bottom": (28, 12, 48),
+        "glow": (245, 158, 11, 90),
+    },
 }
 
 
