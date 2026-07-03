@@ -95,7 +95,7 @@ export const games = [
   },
   {
     id: 6,
-    title: 'Adventure Legends',
+    title: 'Void Hunter',
     tagline: 'Quest Together',
     description:
       'Team up with friends in cooperative quests across vast landscapes and dungeons.',
