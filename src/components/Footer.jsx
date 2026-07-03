@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Twitter, MessageCircle, Instagram, Youtube } from 'lucide-react';
+import { Twitter, Instagram } from 'lucide-react';
 import { socialLinks } from '../data/content';
 
-const icons = { Twitter, Discord: MessageCircle, Instagram, YouTube: Youtube };
+const icons = { Twitter, Instagram };
 
 export default function Footer() {
   const year = new Date().getFullYear();

@@ -112,7 +112,7 @@ export default function Contact() {
                 </div>
                 <div className="contact-info__card">
                   <strong>Join our community</strong>
-                  <p>Connect on Discord, Twitter, and YouTube for updates and behind-the-scenes content.</p>
+                  <p>Connect on Twitter and Instagram for updates and behind-the-scenes content.</p>
                 </div>
               </div>
             </Reveal>

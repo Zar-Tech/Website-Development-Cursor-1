@@ -175,9 +175,7 @@ export const values = [
 
 export const socialLinks = [
   { name: 'Twitter', url: 'https://twitter.com/famzgames' },
-  { name: 'Discord', url: 'https://discord.gg/famzgames' },
   { name: 'Instagram', url: 'https://instagram.com/famzgames' },
-  { name: 'YouTube', url: 'https://youtube.com/@famzgames' },
 ];
 
 export const stats = [
