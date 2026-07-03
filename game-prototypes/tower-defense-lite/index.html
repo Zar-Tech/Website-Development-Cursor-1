@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tower Defense Lite Prototype</title>
+    <meta
+      name="description"
+      content="Mobile-first Tower Defense Lite prototype with waves, towers, upgrades, hero skill, and mock monetization hooks."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="phone-shell" aria-label="Tower Defense Lite playable prototype">
+      <section class="top-panel" aria-label="Battle status">
+        <div>
+          <span class="label">Lives</span>
+          <strong id="lives">20</strong>
+        </div>
+        <div>
+          <span class="label">Gold</span>
+          <strong id="gold">260</strong>
+        </div>
+        <div>
+          <span class="label">Gems</span>
+          <strong id="gems">25</strong>
+        </div>
+        <div>
+          <span class="label">Wave</span>
+          <strong id="wave">0/5</strong>
+        </div>
+      </section>
+
+      <section class="battle-card">
+        <div class="battle-header">
+          <div>
+            <p class="eyebrow">Level 1</p>
+            <h1>Ironwood Pass</h1>
+          </div>
+          <button class="icon-btn" id="pauseButton" type="button" aria-label="Pause battle">||</button>
+        </div>
+
+        <div class="canvas-wrap">
+          <canvas id="gameCanvas" width="390" height="520" aria-label="Tower defense battlefield"></canvas>
+          <div class="toast" id="toast" role="status">Pick a tower, then tap a build node.</div>
+        </div>
+
+        <div class="battle-actions">
+          <button class="primary-btn" id="startWaveButton" type="button">Start Wave</button>
+          <button class="secondary-btn" id="upgradeButton" type="button">Upgrade</button>
+          <button class="secondary-btn" id="sellButton" type="button">Sell</button>
+        </div>
+      </section>
+
+      <section class="tower-dock" aria-label="Tower cards">
+        <button class="tower-card active" type="button" data-tower="arrow">
+          <span class="tower-icon">A</span>
+          <strong>Arrow</strong>
+          <small>80 gold</small>
+        </button>
+        <button class="tower-card" type="button" data-tower="cannon">
+          <span class="tower-icon">C</span>
+          <strong>Cannon</strong>
+          <small>120 gold</small>
+        </button>
+        <button class="tower-card" type="button" data-tower="frost">
+          <span class="tower-icon">F</span>
+          <strong>Frost</strong>
+          <small>100 gold</small>
+        </button>
+        <button class="tower-card" type="button" data-tower="sky">
+          <span class="tower-icon">S</span>
+          <strong>Sky</strong>
+          <small>110 gold</small>
+        </button>
+      </section>
+
+      <section class="monetization-panel" aria-label="Prototype monetization hooks">
+        <button class="hero-skill" id="heroSkillButton" type="button">
+          <span>Hero Skill</span>
+          <strong id="heroCooldown">Ready</strong>
+        </button>
+        <button class="ad-card" id="adChestButton" type="button">
+          <span>Ad Chest</span>
+          <strong>Watch for +75g</strong>
+        </button>
+        <button class="iap-card" id="starterPackButton" type="button">
+          <span>Starter Pack</span>
+          <strong>Mock IAP</strong>
+        </button>
+        <button class="iap-card" id="removeAdsButton" type="button">
+          <span>Remove Ads</span>
+          <strong>Mock IAP</strong>
+        </button>
+      </section>
+
+      <section class="event-log" aria-label="Battle event log">
+        <h2>Battle Log</h2>
+        <ul id="eventLog">
+          <li>Prototype ready.</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
