@@ -3,7 +3,6 @@ import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CursorGlow from './components/CursorGlow';
-import CardGameBackground from './components/CardGameBackground';
 import Home from './pages/Home';
 import Games from './pages/Games';
 import About from './pages/About';
@@ -29,7 +28,6 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <div className="app">
-      <CardGameBackground />
       <CursorGlow />
       <Navbar />
       <main>

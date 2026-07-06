@@ -8,7 +8,7 @@ export const games = [
     rating: 94.3,
     players: '2,847',
     genre: 'Adventure',
-    color: '#2b7fff',
+    color: '#22d3ee',
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ export const games = [
     rating: 91.7,
     players: '4,192',
     genre: 'Racing',
-    color: '#4d9aff',
+    color: '#a855f7',
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const games = [
     rating: 96.1,
     players: '5,621',
     genre: 'RPG',
-    color: '#1a6bff',
+    color: '#6366f1',
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ export const games = [
     rating: 89.5,
     players: '3,104',
     genre: 'Action',
-    color: '#7ab8ff',
+    color: '#ec4899',
   },
   {
     id: 5,
@@ -63,7 +63,7 @@ export const games = [
     rating: 90.2,
     players: '4,508',
     genre: 'Co-op',
-    color: '#0d5ce6',
+    color: '#f59e0b',
   },
 ];
 
