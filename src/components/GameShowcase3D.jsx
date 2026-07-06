@@ -39,8 +39,8 @@ export default function GameShowcase3D() {
     <div className="showcase-3d">
       <Canvas camera={{ position: [0, 0, 10], fov: 50 }} dpr={[1, 2]}>
         <ambientLight intensity={0.4} />
-        <pointLight position={[5, 5, 5]} intensity={1} color="#22d3ee" />
-        <pointLight position={[-5, -5, 5]} intensity={0.5} color="#a855f7" />
+        <pointLight position={[5, 5, 5]} intensity={1} color="#2b7fff" />
+        <pointLight position={[-5, -5, 5]} intensity={0.5} color="#4d9aff" />
         {colors.map((color, i) => (
           <RotatingGameCube key={i} color={color} index={i} />
         ))}

@@ -47,7 +47,7 @@ function ParticleField() {
       positions[i * 3 + 1] = (Math.random() - 0.5) * 30;
       positions[i * 3 + 2] = (Math.random() - 0.5) * 30;
       const color = new THREE.Color();
-      color.setHSL(0.5 + Math.random() * 0.15, 0.8, 0.6);
+      color.setHSL(0.58 + Math.random() * 0.08, 0.85, 0.55);
       colors[i * 3] = color.r;
       colors[i * 3 + 1] = color.g;
       colors[i * 3 + 2] = color.b;
@@ -96,13 +96,13 @@ function CentralOrb() {
     <Float speed={1.5} rotationIntensity={0.3} floatIntensity={0.8}>
       <Sphere ref={meshRef} args={[1.8, 64, 64]} position={[0, 0, 0]}>
         <MeshDistortMaterial
-          color="#22d3ee"
+          color="#2b7fff"
           distort={0.4}
           speed={3}
           roughness={0.1}
           metalness={0.9}
-          emissive="#22d3ee"
-          emissiveIntensity={0.2}
+          emissive="#1a6bff"
+          emissiveIntensity={0.25}
         />
       </Sphere>
     </Float>
@@ -127,15 +127,15 @@ function Scene({ mouse }) {
   return (
     <>
       <ambientLight intensity={0.3} />
-      <pointLight position={[10, 10, 10]} intensity={1} color="#22d3ee" />
-      <pointLight position={[-10, -5, -10]} intensity={0.5} color="#a855f7" />
+      <pointLight position={[10, 10, 10]} intensity={1} color="#2b7fff" />
+      <pointLight position={[-10, -5, -10]} intensity={0.5} color="#4d9aff" />
       <spotLight position={[0, 10, 0]} intensity={0.5} angle={0.3} penumbra={1} color="#ffffff" />
 
       <CentralOrb />
-      <FloatingShape position={[-4, 2, -2]} color="#a855f7" geometry="torus" speed={0.8} />
-      <FloatingShape position={[4, -1, -3]} color="#22d3ee" geometry="octahedron" speed={1.2} />
-      <FloatingShape position={[-3, -2, 1]} color="#6366f1" geometry="icosahedron" speed={0.6} />
-      <FloatingShape position={[3.5, 2.5, 0]} color="#ec4899" geometry="box" speed={1} distort={0.15} />
+      <FloatingShape position={[-4, 2, -2]} color="#1a6bff" geometry="torus" speed={0.8} />
+      <FloatingShape position={[4, -1, -3]} color="#2b7fff" geometry="octahedron" speed={1.2} />
+      <FloatingShape position={[-3, -2, 1]} color="#4d9aff" geometry="icosahedron" speed={0.6} />
+      <FloatingShape position={[3.5, 2.5, 0]} color="#7ab8ff" geometry="box" speed={1} distort={0.15} />
       <ParticleField />
       <Stars radius={50} depth={50} count={2000} factor={3} saturation={0.5} fade speed={0.5} />
     </>
