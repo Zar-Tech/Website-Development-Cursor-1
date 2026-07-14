@@ -2227,3 +2227,356 @@ button { font-family: inherit; cursor: none; border: none; background: none; col
   background: rgba(0, 240, 255, 0.3);
   color: var(--text);
 }
+
+/* ============================================================
+   MOBILE RESPONSIVE — phones & small tablets
+   ============================================================ */
+
+/* Hide custom cursor on touch / coarse pointers */
+.is-touch .cursor-dot,
+.is-touch .cursor-ring {
+  display: none !important;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+
+  body {
+    cursor: auto;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 899px) {
+  .nav__cta {
+    display: none !important;
+  }
+
+  .nav__inner {
+    gap: 0.75rem;
+    justify-content: space-between;
+  }
+
+  .nav__brand {
+    margin-right: 0;
+  }
+
+  .nav__toggle {
+    flex-shrink: 0;
+    margin-left: auto;
+    z-index: 210;
+  }
+
+  .nav__mobile-cta {
+    margin-top: 1rem;
+  }
+
+  .nav__mobile-link {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  .container {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .nav {
+    padding: 0.75rem 0;
+    padding-top: max(0.75rem, env(safe-area-inset-top));
+  }
+
+  .nav--scrolled {
+    padding: 0.6rem 0;
+  }
+
+  .nav__brand-famz {
+    font-size: 1.2rem;
+  }
+
+  .nav__brand-games {
+    font-size: 0.55rem;
+    letter-spacing: 0.28em;
+  }
+
+  .hero--split {
+    padding-top: 4.25rem;
+    padding-bottom: 2rem;
+    min-height: auto;
+  }
+
+  .hero__split {
+    gap: 2rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero__content {
+    padding-inline: 0;
+    max-width: 100%;
+  }
+
+  .hero__badge {
+    margin-bottom: 1.1rem;
+    font-size: 0.68rem;
+    padding: 0.35rem 0.85rem;
+  }
+
+  .hero__title-wrap {
+    margin-bottom: 0.85rem;
+  }
+
+  .hero__title {
+    font-size: clamp(1.7rem, 8.5vw, 2.35rem);
+    line-height: 1.08;
+  }
+
+  .hero__sub {
+    font-size: 0.92rem;
+    margin-bottom: 1.35rem;
+    max-width: 100%;
+    padding-inline: 0.25rem;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn--lg {
+    padding: 0.85rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .hero__tags {
+    gap: 0.45rem;
+    row-gap: 0.5rem;
+    padding-inline: 0.15rem;
+  }
+
+  .hero__tag {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.7rem;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+
+  .hero__orb--1,
+  .hero__orb--2,
+  .hero__orb--3 {
+    width: 180px;
+    height: 180px;
+    filter: blur(40px);
+    opacity: 0.7;
+  }
+
+  .hero__slider-wrap {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero-slider {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 14px;
+  }
+
+  .hero-slider__viewport {
+    aspect-ratio: 5 / 4;
+  }
+
+  .hero-slider__game {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .hero-slider__icon {
+    width: 84px;
+    height: 84px;
+    border-radius: 18px;
+  }
+
+  .hero-slider__title {
+    font-size: 1.15rem;
+  }
+
+  .hero-slider__controls {
+    padding: 0.65rem 0.75rem;
+  }
+
+  .hero-slider__arrow {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-slider__footer {
+    padding: 0.5rem 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .section__header {
+    margin-bottom: 2rem;
+  }
+
+  .section__title {
+    font-size: clamp(1.45rem, 6vw, 1.85rem);
+  }
+
+  .stats-bar {
+    gap: 0.75rem;
+  }
+
+  .stats-bar__item {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .carousel {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel__stage {
+    height: 400px;
+    width: 100%;
+  }
+
+  .carousel__card {
+    width: min(260px, calc(100vw - 3rem));
+  }
+
+  .carousel__glow {
+    width: 100%;
+    max-width: 360px;
+    height: 280px;
+  }
+
+  .carousel__controls {
+    padding-inline: 0.5rem;
+    gap: 0.75rem;
+  }
+
+  .games-showcase {
+    gap: 1.5rem;
+  }
+
+  .game-panel {
+    border-radius: 14px;
+  }
+
+  .game-panel__visual {
+    min-height: 200px;
+  }
+
+  .game-panel__info {
+    padding: 1.35rem 1.25rem 1.5rem;
+  }
+
+  .game-panel__info h2 {
+    font-size: 1.35rem;
+  }
+
+  .game-panel__number {
+    font-size: 3rem;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .page-hero {
+    padding-top: 5.5rem;
+  }
+
+  .page-hero__title {
+    font-size: clamp(1.6rem, 7vw, 2.25rem);
+  }
+
+  .filter-tabs {
+    gap: 0.4rem;
+  }
+
+  .filter-tab {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .contact-grid,
+  .about-content {
+    gap: 2rem;
+  }
+
+  .toast {
+    left: 1rem;
+    right: 1rem;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .footer {
+    padding: 3rem 0 max(2rem, env(safe-area-inset-bottom));
+  }
+
+  .footer__legal {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .marquee {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: clamp(1.55rem, 9vw, 2rem);
+  }
+
+  .hero-slider__viewport {
+    aspect-ratio: 1 / 1;
+  }
+
+  .hero-slider__icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+  }
+
+  .carousel__stage {
+    height: 360px;
+  }
+
+  .carousel__card {
+    width: min(240px, calc(100vw - 2.5rem));
+  }
+
+  .carousel__card-body {
+    padding: 1rem 1.1rem 1.15rem;
+  }
+
+  .carousel__card-body h3 {
+    font-size: 1.05rem;
+  }
+}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, Users, Play } from 'lucide-react';
 import GamePlayLink from './GamePlayLink';
@@ -6,10 +6,29 @@ import { games } from '../data/content';
 import { getGameImage } from '../utils/gameImage';
 import { useApp } from '../context/AppContext';
 
+function useCardSpacing() {
+  const [spacing, setSpacing] = useState(300);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      if (w < 480) setSpacing(Math.min(260, w - 48));
+      else if (w < 768) setSpacing(280);
+      else setSpacing(300);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
+  return spacing;
+}
+
 export default function GameCarousel() {
   const [index, setIndex] = useState(0);
   const { setActiveGame } = useApp();
   const game = games[index];
+  const cardSpacing = useCardSpacing();
 
   const go = (i) => {
     setIndex(i);
@@ -34,10 +53,10 @@ export default function GameCarousel() {
               key={g.id}
               className={`carousel__card interactive ${isActive ? 'carousel__card--active' : ''}`}
               animate={{
-                x: offset * 300,
+                x: offset * cardSpacing,
                 z: isActive ? 0 : -abs * 140,
-                rotateY: offset * -20,
-                scale: isActive ? 1 : 0.78,
+                rotateY: offset * (cardSpacing < 280 ? -12 : -20),
+                scale: isActive ? 1 : cardSpacing < 280 ? 0.72 : 0.78,
                 opacity: abs > 2 ? 0 : isActive ? 1 : 0.45,
               }}
               transition={{ type: 'spring', stiffness: 180, damping: 26 }}
