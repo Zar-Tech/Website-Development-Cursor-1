@@ -51,7 +51,12 @@ export default function Navbar() {
             <span className="btn__text">Play Now</span>
           </Link>
 
-          <button className="nav__toggle interactive" onClick={() => setOpen(!open)} aria-label="Menu">
+          <button
+            className="nav__toggle interactive"
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+            aria-expanded={open}
+          >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
@@ -78,6 +83,20 @@ export default function Navbar() {
                 </Link>
               </motion.div>
             ))}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45 }}
+            >
+              <Link
+                to="/games"
+                className="btn btn--primary btn--lg interactive nav__mobile-cta"
+                onClick={() => setOpen(false)}
+              >
+                <span className="btn__bg" />
+                <span className="btn__text">Play Now</span>
+              </Link>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

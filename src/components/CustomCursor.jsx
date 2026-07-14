@@ -7,6 +7,14 @@ export default function CustomCursor() {
   const { setMouse } = useApp();
 
   useEffect(() => {
+    const isTouch =
+      window.matchMedia('(hover: none), (pointer: coarse)').matches ||
+      window.innerWidth < 900;
+    if (isTouch) {
+      document.body.classList.add('is-touch');
+      return;
+    }
+
     const dot = dotRef.current;
     const ring = ringRef.current;
     if (!dot || !ring) return;
@@ -15,6 +23,7 @@ export default function CustomCursor() {
       my = 0,
       rx = 0,
       ry = 0;
+    let raf = 0;
 
     const onMove = (e) => {
       mx = e.clientX;
@@ -41,7 +50,7 @@ export default function CustomCursor() {
       ry += (my - ry) * 0.12;
       ring.style.left = `${rx}px`;
       ring.style.top = `${ry}px`;
-      requestAnimationFrame(animate);
+      raf = requestAnimationFrame(animate);
     };
 
     window.addEventListener('mousemove', onMove);
@@ -53,13 +62,14 @@ export default function CustomCursor() {
 
     return () => {
       window.removeEventListener('mousemove', onMove);
+      cancelAnimationFrame(raf);
     };
   }, [setMouse]);
 
   return (
     <>
-      <div ref={dotRef} className="cursor-dot" />
-      <div ref={ringRef} className="cursor-ring" />
+      <div ref={dotRef} className="cursor-dot" aria-hidden="true" />
+      <div ref={ringRef} className="cursor-ring" aria-hidden="true" />
     </>
   );
 }
